@@ -11,7 +11,7 @@ interface StatCardProps {
   trendLabel?: string
   icon?: React.ReactNode
   className?: string
-  color?: 'primary' | 'success' | 'destructive' | 'warning' | 'info'
+  color?: 'primary' | 'success' | 'destructive' | 'warning' | 'info' | 'neutral'
 }
 
 export function StatCard({
@@ -49,10 +49,17 @@ export function StatCard({
         }
       case 'info':
         return {
-          bg: 'bg-cyan-50/50 dark:bg-cyan-950/15',
-          border: 'border-cyan-150/40 dark:border-cyan-900/30',
-          text: 'text-cyan-600 dark:text-cyan-400',
-          iconBg: 'bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400',
+          bg: 'bg-blue-50/50 dark:bg-blue-950/15',
+          border: 'border-blue-100 dark:border-blue-900/30',
+          text: 'text-blue-700 dark:text-blue-400',
+          iconBg: 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400',
+        }
+      case 'neutral':
+        return {
+          bg: 'bg-white dark:bg-slate-900',
+          border: 'border-slate-200 dark:border-slate-800',
+          text: 'text-slate-900 dark:text-white',
+          iconBg: 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300',
         }
       default:
         return {
@@ -70,7 +77,7 @@ export function StatCard({
     <Card className={cn('overflow-hidden border shadow-sm premium-card', styles.border, styles.bg, className)}>
       <CardContent className="p-6">
         <div className="flex items-start justify-between gap-2">
-          <p className="text-xs sm:text-sm font-semibold text-slate-500 dark:text-slate-400 break-words line-clamp-2 leading-snug">{title}</p>
+          <p className="text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 break-words line-clamp-2 leading-snug">{title}</p>
           {icon && (
             <div className={cn('flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition duration-200', styles.iconBg)}>
               {icon}
@@ -78,14 +85,14 @@ export function StatCard({
           )}
         </div>
         <div className="mt-4 space-y-1">
-          <h3 className={cn('text-xl sm:text-2xl font-extrabold tracking-tight', styles.text)}>
+          <h3 className={cn('text-xl sm:text-2xl font-bold tracking-tight', styles.text)}>
             {value}
           </h3>
           {trend !== undefined && (
             <div className="flex items-center gap-1.5 pt-0.5">
               <span
                 className={cn(
-                  'flex items-center text-xs font-bold px-1.5 py-0.5 rounded-md border',
+                  'flex items-center text-xs font-medium px-1.5 py-0.5 rounded-md border',
                   trend >= 0
                     ? 'text-green-600 border-green-200 bg-green-50 dark:text-green-400 dark:border-green-950 dark:bg-green-950/20'
                     : 'text-red-600 border-red-200 bg-red-50 dark:text-red-400 dark:border-red-950 dark:bg-red-950/20'
@@ -106,7 +113,7 @@ export function StatCard({
             </div>
           )}
           {!trend && subtitle && (
-            <p className="text-xs text-slate-400 dark:text-slate-500 font-medium pt-0.5">{subtitle}</p>
+            <p className="text-xs text-slate-400 dark:text-slate-500 font-normal pt-0.5">{subtitle}</p>
           )}
         </div>
       </CardContent>

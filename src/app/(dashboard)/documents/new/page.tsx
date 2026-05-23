@@ -154,10 +154,10 @@ export default function NewDocumentPage() {
     >
       <div className="flex items-center gap-4">
         <Button 
-          variant="ghost" 
+          variant="outline" 
           size="icon" 
           onClick={() => router.back()}
-          className="h-10 w-10 rounded-xl glass-effect border-none"
+          className="h-10 w-10 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm"
         >
           <ChevronLeft className="h-5 w-5" />
         </Button>
@@ -172,7 +172,7 @@ export default function NewDocumentPage() {
           {/* MAIN INFO CARD */}
           <Card className="premium-card border-none shadow-xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-xl">
             <CardHeader className="pb-4">
-              <CardTitle className="text-lg font-black flex items-center gap-2">
+              <CardTitle className="text-lg font-bold flex items-center gap-2">
                 <FileText className="h-5 w-5 text-blue-600" />
                 ข้อมูลพื้นฐานของเอกสาร
               </CardTitle>
@@ -180,42 +180,42 @@ export default function NewDocumentPage() {
             <CardContent className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="docType" className="text-[10px] font-black uppercase tracking-widest text-slate-400">ประเภทเอกสาร</Label>
+                  <Label htmlFor="docType" className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">ประเภทเอกสาร</Label>
                   <Select value={docType} onValueChange={(val) => setDocType(val as DocumentType)}>
-                    <SelectTrigger id="docType" className="h-12 rounded-2xl text-sm font-black border-none glass-effect shadow-sm">
+                    <SelectTrigger id="docType" className="h-11 rounded-lg text-sm font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm focus:ring-2 focus:ring-blue-500/20">
                       <SelectValue placeholder="เลือกประเภท" />
                     </SelectTrigger>
-                    <SelectContent className="rounded-2xl border-none shadow-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl">
-                      <SelectItem value="QUOTATION" className="text-xs font-bold py-2.5">ใบเสนอราคา (Quotation)</SelectItem>
-                      <SelectItem value="INVOICE" className="text-xs font-bold py-2.5">ใบแจ้งหนี้ (Invoice)</SelectItem>
-                      <SelectItem value="RECEIPT" className="text-xs font-bold py-2.5">ใบเสร็จรับเงิน (Receipt)</SelectItem>
+                    <SelectContent className="rounded-lg border border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950">
+                      <SelectItem value="QUOTATION" className="text-xs font-semibold py-2.5">ใบเสนอราคา (Quotation)</SelectItem>
+                      <SelectItem value="INVOICE" className="text-xs font-semibold py-2.5">ใบแจ้งหนี้ (Invoice)</SelectItem>
+                      <SelectItem value="RECEIPT" className="text-xs font-semibold py-2.5">ใบเสร็จรับเงิน (Receipt)</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="docNumber" className="text-[10px] font-black uppercase tracking-widest text-slate-400">เลขที่เอกสาร</Label>
+                  <Label htmlFor="docNumber" className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">เลขที่เอกสาร</Label>
                   <Input 
                     id="docNumber" 
                     placeholder="เช่น INV-2024001" 
                     value={docNumber} 
                     onChange={(e) => setDocNumber(e.target.value)}
                     required
-                    className="h-12 rounded-2xl text-sm font-black border-none glass-effect shadow-sm text-blue-600 dark:text-blue-400"
+                    className="h-11 rounded-lg text-sm font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm text-blue-600 dark:text-blue-400 focus:ring-2 focus:ring-blue-500/20"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="client" className="text-[10px] font-black uppercase tracking-widest text-slate-400">ลูกค้า / ผู้รับสัญญา</Label>
+                  <Label htmlFor="client" className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">ลูกค้า / ผู้รับสัญญา</Label>
                   <Select value={clientId} onValueChange={(val) => setClientId(val || '')}>
-                    <SelectTrigger id="client" className="h-12 rounded-2xl text-sm font-black border-none glass-effect shadow-sm">
+                    <SelectTrigger id="client" className="h-11 rounded-lg text-sm font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm focus:ring-2 focus:ring-blue-500/20">
                       <SelectValue placeholder="เลือกลูกค้า" />
                     </SelectTrigger>
-                    <SelectContent className="rounded-2xl border-none shadow-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl">
+                    <SelectContent className="rounded-lg border border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-955">
                       {clients.map((c) => (
-                        <SelectItem key={c.id} value={c.id} className="text-xs font-bold py-2.5">
+                        <SelectItem key={c.id} value={c.id} className="text-xs font-semibold py-2.5">
                           {c.name}
                         </SelectItem>
                       ))}
@@ -224,15 +224,15 @@ export default function NewDocumentPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="project" className="text-[10px] font-black uppercase tracking-widest text-slate-400">งาน / โครงการ</Label>
+                  <Label htmlFor="project" className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">งาน / โครงการ</Label>
                   <Select value={projectId} onValueChange={(val) => setProjectId(val || 'none')}>
-                    <SelectTrigger id="project" className="h-12 rounded-2xl text-sm font-black border-none glass-effect shadow-sm">
+                    <SelectTrigger id="project" className="h-11 rounded-lg text-sm font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm focus:ring-2 focus:ring-blue-500/20">
                       <SelectValue placeholder="เลือกโครงการ (ถ้ามี)" />
                     </SelectTrigger>
-                    <SelectContent className="rounded-2xl border-none shadow-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl">
+                    <SelectContent className="rounded-lg border border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950">
                       <SelectItem value="none" className="text-xs font-medium py-2.5">-- ไม่ระบุ --</SelectItem>
                       {projects.map((p) => (
-                        <SelectItem key={p.id} value={p.id} className="text-xs font-bold py-2.5">
+                        <SelectItem key={p.id} value={p.id} className="text-xs font-semibold py-2.5">
                           {p.name}
                         </SelectItem>
                       ))}
@@ -243,25 +243,25 @@ export default function NewDocumentPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="issuedDate" className="text-[10px] font-black uppercase tracking-widest text-slate-400">วันที่ออกเอกสาร</Label>
+                  <Label htmlFor="issuedDate" className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">วันที่ออกเอกสาร</Label>
                   <Input 
                     id="issuedDate" 
                     type="date" 
                     value={issuedDate} 
                     onChange={(e) => setIssuedDate(e.target.value)}
                     required
-                    className="h-12 rounded-2xl text-xs font-bold border-none glass-effect shadow-sm"
+                    className="h-11 rounded-lg text-xs font-semibold border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 shadow-sm"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="dueDate" className="text-[10px] font-black uppercase tracking-widest text-slate-400">วันครบกำหนดชำระ</Label>
+                  <Label htmlFor="dueDate" className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">วันครบกำหนดชำระ</Label>
                   <Input 
                     id="dueDate" 
                     type="date" 
                     value={dueDate} 
                     onChange={(e) => setDueDate(e.target.value)}
-                    className="h-12 rounded-2xl text-xs font-bold border-none glass-effect shadow-sm"
+                    className="h-11 rounded-lg text-xs font-semibold border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 shadow-sm"
                   />
                 </div>
               </div>
@@ -271,7 +271,7 @@ export default function NewDocumentPage() {
           {/* LINE ITEMS CARD */}
           <Card className="premium-card border-none shadow-xl bg-white/80 dark:bg-slate-900/60 backdrop-blur-xl overflow-hidden">
             <CardHeader className="pb-4">
-              <CardTitle className="text-lg font-black flex items-center gap-2">
+              <CardTitle className="text-lg font-bold flex items-center gap-2">
                 <Plus className="h-5 w-5 text-blue-600" />
                 รายการสินค้า / บริการ
               </CardTitle>
@@ -280,10 +280,10 @@ export default function NewDocumentPage() {
               <Table>
                 <TableHeader className="bg-slate-50/50 dark:bg-slate-950/30">
                   <TableRow className="border-b-slate-100 dark:border-b-slate-800/50">
-                    <TableHead className="font-black uppercase text-[10px] tracking-widest pl-8">คำอธิบายรายการ</TableHead>
-                    <TableHead className="font-black uppercase text-[10px] tracking-widest text-center w-[100px]">จำนวน</TableHead>
-                    <TableHead className="font-black uppercase text-[10px] tracking-widest text-right w-[150px]">ราคาหน่วยละ</TableHead>
-                    <TableHead className="font-black uppercase text-[10px] tracking-widest text-right pr-8 w-[150px]">ยอดรวม</TableHead>
+                    <TableHead className="font-semibold text-[11px] uppercase tracking-wider text-slate-500 pl-8">คำอธิบายรายการ</TableHead>
+                    <TableHead className="font-semibold text-[11px] uppercase tracking-wider text-slate-500 text-center w-[100px]">จำนวน</TableHead>
+                    <TableHead className="font-semibold text-[11px] uppercase tracking-wider text-slate-500 text-right w-[150px]">ราคาหน่วยละ</TableHead>
+                    <TableHead className="font-semibold text-[11px] uppercase tracking-wider text-slate-500 text-right pr-8 w-[150px]">ยอดรวม</TableHead>
                     <TableHead className="w-[60px]"></TableHead>
                   </TableRow>
                 </TableHeader>
@@ -295,7 +295,7 @@ export default function NewDocumentPage() {
                           placeholder="ระบุรายละเอียดบริการ..."
                           value={item.description}
                           onChange={(e) => handleItemChange(index, 'description', e.target.value)}
-                          className="h-10 rounded-xl text-sm font-bold border-none glass-effect shadow-none"
+                          className="h-10 rounded-lg text-sm font-semibold border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm focus-visible:ring-2 focus-visible:ring-blue-500/20"
                         />
                       </TableCell>
                       <TableCell className="py-5">
@@ -303,7 +303,7 @@ export default function NewDocumentPage() {
                           type="number"
                           value={item.quantity}
                           onChange={(e) => handleItemChange(index, 'quantity', e.target.value)}
-                          className="h-10 rounded-xl text-sm text-center font-black border-none glass-effect shadow-none"
+                          className="h-10 rounded-lg text-sm text-center font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm focus-visible:ring-2 focus-visible:ring-blue-500/20"
                         />
                       </TableCell>
                       <TableCell className="py-5">
@@ -311,10 +311,10 @@ export default function NewDocumentPage() {
                           type="number"
                           value={item.unitPrice}
                           onChange={(e) => handleItemChange(index, 'unitPrice', e.target.value)}
-                          className="h-10 rounded-xl text-sm text-right font-black border-none glass-effect shadow-none"
+                          className="h-10 rounded-lg text-sm text-right font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm focus-visible:ring-2 focus-visible:ring-blue-500/20"
                         />
                       </TableCell>
-                      <TableCell className="py-5 text-right font-black text-slate-900 dark:text-white pr-8">
+                      <TableCell className="py-5 text-right font-semibold text-slate-900 dark:text-white pr-8">
                         {formatCurrency(item.quantity * item.unitPrice)}
                       </TableCell>
                       <TableCell className="pr-4">
@@ -337,7 +337,7 @@ export default function NewDocumentPage() {
                   type="button" 
                   variant="outline" 
                   onClick={handleAddItem}
-                  className="rounded-2xl h-11 px-6 font-black text-xs border-none glass-effect hover:bg-white/10 transition-all gap-2"
+                  className="rounded-lg h-10 px-5 font-semibold text-xs border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 hover:bg-white/10 transition-all gap-2"
                 >
                   <Plus className="h-4 w-4 text-blue-500" />
                   เพิ่มรายการ
@@ -351,7 +351,7 @@ export default function NewDocumentPage() {
         <div className="space-y-8">
           <Card className="premium-card border-none shadow-2xl bg-gradient-to-br from-slate-900 to-slate-950 dark:from-blue-600 dark:to-indigo-700 text-white overflow-hidden">
             <CardHeader className="pb-4 relative">
-              <CardTitle className="text-lg font-black flex items-center gap-3">
+              <CardTitle className="text-lg font-bold flex items-center gap-3">
                 <div className="bg-white/10 p-2 rounded-xl backdrop-blur-md">
                    <Calculator className="h-5 w-5 text-white" />
                 </div>
@@ -359,7 +359,7 @@ export default function NewDocumentPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 relative p-6">
-              <div className="flex items-center justify-between p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 mb-4">
+              <div className="flex items-center justify-between p-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 mb-4">
                 <div className="flex items-center gap-2">
                   <Percent className="h-4 w-4 text-blue-300" />
                   <span className="text-xs font-bold text-white/90">ภาษีมูลค่าเพิ่ม (VAT 7%)</span>
@@ -380,13 +380,13 @@ export default function NewDocumentPage() {
                 {includeVat && (
                   <div className="flex items-center justify-between text-blue-300">
                     <span className="font-medium">ภาษีมูลค่าเพิ่ม (7%)</span>
-                    <span className="font-black">+{formatCurrency(vatAmount)}</span>
+                    <span className="font-semibold">+{formatCurrency(vatAmount)}</span>
                   </div>
                 )}
                 <div className="h-px bg-white/10 my-4" />
                 <div className="flex items-center justify-between">
-                  <span className="text-white font-black text-xs uppercase tracking-widest">ยอดรวมทั้งสิ้น</span>
-                  <span className="text-3xl font-black text-white">{formatCurrency(total)}</span>
+                  <span className="text-white font-semibold text-xs uppercase tracking-widest">ยอดรวมทั้งสิ้น</span>
+                  <span className="text-3xl font-bold text-white">{formatCurrency(total)}</span>
                 </div>
               </div>
             </CardContent>
@@ -394,7 +394,7 @@ export default function NewDocumentPage() {
 
           <Card className="premium-card border-none bg-white/80 dark:bg-slate-900/60 backdrop-blur-xl">
              <CardHeader className="pb-4">
-              <CardTitle className="text-sm font-black uppercase tracking-widest text-slate-400 flex items-center gap-2">
+              <CardTitle className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-2">
                 <Sparkles className="h-4 w-4 text-blue-500" />
                 หมายเหตุเพิ่มเติม
               </CardTitle>
@@ -406,23 +406,23 @@ export default function NewDocumentPage() {
                 placeholder="ระบุข้อมูลเพิ่มเติม หรือเงื่อนไขการชำระเงิน..."
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                className="rounded-[2rem] text-sm font-medium border-none glass-effect shadow-none min-h-[120px]"
+                className="rounded-lg text-sm font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm min-h-[120px] focus-visible:ring-2 focus-visible:ring-blue-500/20"
               />
             </CardContent>
             <CardFooter className="p-6 pt-0 flex flex-col gap-3">
               <Button 
                 type="submit" 
                 disabled={loading}
-                className="w-full h-14 rounded-[1.5rem] font-black text-sm bg-blue-600 hover:bg-blue-700 text-white shadow-xl shadow-blue-500/25 transition-all active:scale-95 gap-2"
+                className="w-full h-11 rounded-lg font-semibold text-sm bg-blue-600 hover:bg-blue-700 text-white shadow-md active:scale-95 transition-all gap-2"
               >
                 {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <Save className="h-5 w-5" />}
                 บันทึกเอกสาร
               </Button>
               <Button 
                 type="button" 
-                variant="ghost"
+                variant="outline"
                 onClick={() => router.push('/documents')}
-                className="w-full h-12 rounded-2xl font-bold text-xs text-slate-400 hover:text-slate-600 transition-all"
+                className="w-full h-11 rounded-lg font-semibold text-xs border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-850 active:scale-95 transition-all"
               >
                 ยกเลิก
               </Button>

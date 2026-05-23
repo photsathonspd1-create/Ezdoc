@@ -38,6 +38,16 @@ import { KanbanBoard } from '@/components/projects/kanban-board'
 import { formatCurrency, formatDate } from '@/lib/utils'
 import { toast } from 'sonner'
 import { ProjectStatus, PayStatus } from '@prisma/client'
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -48,6 +58,7 @@ export default function ProjectsPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [statusFilter, setStatusFilter] = useState<string>('ALL')
   const [viewMode, setViewMode] = useState<'list'|'kanban'>('kanban')
+  const [deletingId, setDeletingId] = useState<string | null>(null)
 
   const { data: projects = [], isLoading: loadingProjects, mutate } = useSWR(
     currentOrg ? `/api/projects?orgId=${currentOrg.id}` : null,
@@ -120,12 +131,12 @@ export default function ProjectsPage() {
     setIsFormOpen(true)
   }
 
-  const handleDelete = async (id: string) => {
-    if (!currentOrg) return
-    if (!confirm('คุณแน่ใจหรือไม่ว่าต้องการลบโครงการนี้? การลบโครงการจะไม่ลบเอกสารที่เชื่อมโยงอยู่')) return
+  const handleDelete = (id: string) => setDeletingId(id)
 
+  const confirmDelete = async () => {
+    if (!currentOrg || !deletingId) return
     try {
-      const res = await fetch(`/api/projects/${id}?orgId=${currentOrg.id}`, { method: 'DELETE' })
+      const res = await fetch(`/api/projects/${deletingId}?orgId=${currentOrg.id}`, { method: 'DELETE' })
       if (res.ok) {
         toast.success('ลบโครงการสำเร็จ')
         mutate()
@@ -135,6 +146,8 @@ export default function ProjectsPage() {
       }
     } catch (error) {
       toast.error('เกิดข้อผิดพลาดในการลบ')
+    } finally {
+      setDeletingId(null)
     }
   }
 
@@ -218,7 +231,7 @@ export default function ProjectsPage() {
             setIsFormOpen(true)
           }}
           size="sm"
-          className="h-9 rounded-xl font-bold text-xs bg-blue-600 hover:bg-blue-700 text-white shadow-sm"
+          className="h-9 rounded-lg font-semibold text-xs bg-blue-600 hover:bg-blue-700 text-white shadow-sm"
         >
           <Plus className="mr-2 h-4 w-4" />
           สร้างโครงการใหม่
@@ -226,49 +239,49 @@ export default function ProjectsPage() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-        <Card className="border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-slate-950 shadow-sm rounded-2xl">
+        <Card className="border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-slate-950 shadow-sm rounded-xl">
           <CardContent className="p-5 flex items-center justify-between">
             <div className="space-y-1">
               <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">โครงการทั้งหมด</p>
-              <h3 className="text-2xl font-black">{projects.length} โครงการ</h3>
+              <h3 className="text-2xl font-bold">{projects.length} โครงการ</h3>
             </div>
-            <div className="h-10 w-10 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
+            <div className="h-10 w-10 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
               <Briefcase className="h-5 w-5" />
             </div>
           </CardContent>
         </Card>
 
-        <Card className="border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-slate-950 shadow-sm rounded-2xl">
+        <Card className="border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-slate-950 shadow-sm rounded-xl">
           <CardContent className="p-5 flex items-center justify-between">
             <div className="space-y-1">
               <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">งบประมาณโครงการรวม</p>
-              <h3 className="text-2xl font-black text-slate-900 dark:text-white">{formatCurrency(totalBudget)}</h3>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{formatCurrency(totalBudget)}</h3>
             </div>
-            <div className="h-10 w-10 rounded-xl bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center text-purple-600 dark:text-purple-400">
+            <div className="h-10 w-10 rounded-lg bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center text-purple-600 dark:text-purple-400">
               <DollarSign className="h-5 w-5" />
             </div>
           </CardContent>
         </Card>
 
-        <Card className="border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-slate-950 shadow-sm rounded-2xl">
+        <Card className="border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-slate-950 shadow-sm rounded-xl">
           <CardContent className="p-5 flex items-center justify-between">
             <div className="space-y-1">
               <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">รับชำระเงินแล้ว</p>
-              <h3 className="text-2xl font-black text-green-600 dark:text-green-400">{formatCurrency(totalPaid)}</h3>
+              <h3 className="text-2xl font-bold text-green-600 dark:text-green-400">{formatCurrency(totalPaid)}</h3>
             </div>
-            <div className="h-10 w-10 rounded-xl bg-green-50 dark:bg-green-900/20 flex items-center justify-center text-green-600 dark:text-green-400">
+            <div className="h-10 w-10 rounded-lg bg-green-50 dark:bg-green-900/20 flex items-center justify-center text-green-600 dark:text-green-400">
               <CheckCircle2 className="h-5 w-5" />
             </div>
           </CardContent>
         </Card>
 
-        <Card className="border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-slate-950 shadow-sm rounded-2xl flex flex-col justify-between">
+        <Card className="border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-slate-950 shadow-sm rounded-xl flex flex-col justify-between">
           <CardContent className="p-5 flex items-center justify-between">
             <div className="space-y-1">
               <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">ยอดค้างจ่ายคงเหลือ</p>
-              <h3 className="text-2xl font-black text-amber-600 dark:text-amber-400">{formatCurrency(totalRemaining)}</h3>
+              <h3 className="text-2xl font-bold text-amber-600 dark:text-amber-400">{formatCurrency(totalRemaining)}</h3>
             </div>
-            <div className="h-10 w-10 rounded-xl bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center text-amber-600 dark:text-amber-400">
+            <div className="h-10 w-10 rounded-lg bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center text-amber-600 dark:text-amber-400">
               <Clock className="h-5 w-5" />
             </div>
           </CardContent>
@@ -295,12 +308,12 @@ export default function ProjectsPage() {
         </Card>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-white dark:bg-slate-950 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 shadow-sm">
+      <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-white dark:bg-slate-950 p-4 rounded-xl border border-slate-200/60 dark:border-slate-800/60 shadow-sm">
         <div className="relative w-full md:w-96">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
           <Input 
             placeholder="ค้นหาชื่อโครงการ ลูกค้า หรือแท็ก..." 
-            className="pl-9 h-10 rounded-xl text-xs font-semibold"
+            className="pl-9 h-10 rounded-lg text-xs font-semibold"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -310,7 +323,7 @@ export default function ProjectsPage() {
             variant={statusFilter === 'ALL' ? 'default' : 'outline'}
             onClick={() => setStatusFilter('ALL')}
             size="sm"
-            className="h-9 rounded-lg text-xs font-bold"
+            className="h-9 rounded-lg text-xs font-semibold"
           >
             ทั้งหมด
           </Button>
@@ -318,7 +331,7 @@ export default function ProjectsPage() {
             variant={statusFilter === 'ACTIVE' ? 'default' : 'outline'}
             onClick={() => setStatusFilter('ACTIVE')}
             size="sm"
-            className="h-9 rounded-lg text-xs font-bold text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-900"
+            className="h-9 rounded-lg text-xs font-semibold text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-900"
           >
             กำลังดำเนินการ
           </Button>
@@ -326,7 +339,7 @@ export default function ProjectsPage() {
             variant={statusFilter === 'PENDING' ? 'default' : 'outline'}
             onClick={() => setStatusFilter('PENDING')}
             size="sm"
-            className="h-9 rounded-lg text-xs font-bold text-amber-600 dark:text-amber-400 border-amber-200 dark:border-amber-900"
+            className="h-9 rounded-lg text-xs font-semibold text-amber-600 dark:text-amber-400 border-amber-200 dark:border-amber-900"
           >
             รอดำเนินการ
           </Button>
@@ -334,7 +347,7 @@ export default function ProjectsPage() {
             variant={statusFilter === 'COMPLETED' ? 'default' : 'outline'}
             onClick={() => setStatusFilter('COMPLETED')}
             size="sm"
-            className="h-9 rounded-lg text-xs font-bold text-green-600 dark:text-green-400 border-green-200 dark:border-green-900"
+            className="h-9 rounded-lg text-xs font-semibold text-green-600 dark:text-green-400 border-green-200 dark:border-green-900"
           >
             เสร็จสิ้น
           </Button>
@@ -357,7 +370,7 @@ export default function ProjectsPage() {
             const payPercent = budgetNum > 0 ? Math.min(Math.round((paidNum / budgetNum) * 100), 100) : 0
             
             return (
-              <Card key={project.id} className="border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-slate-950 shadow-sm rounded-2xl flex flex-col justify-between overflow-hidden hover:shadow-md transition duration-200">
+              <Card key={project.id} className="border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-slate-950 shadow-sm rounded-xl flex flex-col justify-between overflow-hidden hover:shadow-md transition duration-200">
                 <CardHeader className="p-6 pb-2">
                   <div className="flex items-center justify-between gap-2 mb-2">
                     <div className="flex items-center gap-1.5">
@@ -368,7 +381,7 @@ export default function ProjectsPage() {
                     </div>
                     {getStatusBadge(project.status)}
                   </div>
-                  <CardTitle className="text-base font-black leading-tight line-clamp-2">
+                  <CardTitle className="text-base font-bold leading-tight line-clamp-2">
                     {project.name}
                   </CardTitle>
                   <CardDescription className="text-xs text-slate-400 flex items-center gap-1.5 mt-1 font-semibold">
@@ -380,7 +393,7 @@ export default function ProjectsPage() {
                   <div className="space-y-1.5">
                     <div className="flex items-center justify-between text-xs font-semibold text-slate-500">
                       <span>รับชำระเงินแล้ว ({payPercent}%)</span>
-                      <span className="font-extrabold text-slate-700 dark:text-slate-200">{formatCurrency(paidNum)} / {budgetNum > 0 ? formatCurrency(budgetNum) : 'ไม่ระบุ'}</span>
+                      <span className="font-bold text-slate-700 dark:text-slate-200">{formatCurrency(paidNum)} / {budgetNum > 0 ? formatCurrency(budgetNum) : 'ไม่ระบุ'}</span>
                     </div>
                     <div className="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
                       <div 
@@ -453,7 +466,7 @@ export default function ProjectsPage() {
       <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
         <DialogContent className="sm:max-w-lg rounded-2xl">
           <DialogHeader>
-            <DialogTitle className="text-lg font-black">
+            <DialogTitle className="text-lg font-bold">
               {editingProject ? 'แก้ไขข้อมูลโครงการ' : 'สร้างโครงการใหม่'}
             </DialogTitle>
             <DialogDescription className="text-xs">
@@ -471,6 +484,24 @@ export default function ProjectsPage() {
           />
         </DialogContent>
       </Dialog>
+
+      <AlertDialog open={!!deletingId} onOpenChange={(o) => !o && setDeletingId(null)}>
+        <AlertDialogContent className="rounded-2xl">
+          <AlertDialogHeader>
+            <AlertDialogTitle>ยืนยันการลบโครงการ</AlertDialogTitle>
+            <AlertDialogDescription>
+              คุณแน่ใจหรือไม่ว่าต้องการลบโครงการนี้? การลบโครงการจะไม่ลบเอกสารที่เชื่อมโยงอยู่
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel className="rounded-lg">ยกเลิก</AlertDialogCancel>
+            <AlertDialogAction onClick={confirmDelete} 
+              className="bg-red-600 hover:bg-red-700 rounded-lg">
+              ลบโครงการ
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   )
 }

@@ -16,6 +16,16 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog'
 import { 
   Plus, 
   Search, 
@@ -37,6 +47,7 @@ export default function TransactionsPage() {
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [editingTransaction, setEditingTransaction] = useState<any>(null)
   const [searchQuery, setSearchQuery] = useState('')
+  const [deletingId, setDeletingId] = useState<string | null>(null)
 
   const { data: transactions = [], isLoading: loading, mutate } = useSWR(
     currentOrg ? `/api/transactions?orgId=${currentOrg.id}` : null,
@@ -72,11 +83,12 @@ export default function TransactionsPage() {
     }
   }
 
-  const handleDelete = async (id: string) => {
-    if (!confirm('คุณแน่ใจหรือไม่ว่าต้องการลบรายการนี้?')) return
+  const handleDelete = (id: string) => setDeletingId(id)
 
+  const confirmDelete = async () => {
+    if (!deletingId) return
     try {
-      const res = await fetch(`/api/transactions/${id}`, { method: 'DELETE' })
+      const res = await fetch(`/api/transactions/${deletingId}`, { method: 'DELETE' })
       if (res.ok) {
         toast.success('ลบรายการสำเร็จ')
         mutate()
@@ -86,6 +98,8 @@ export default function TransactionsPage() {
       }
     } catch (error) {
       toast.error('เกิดข้อผิดพลาดในการลบ')
+    } finally {
+      setDeletingId(null)
     }
   }
 
@@ -130,7 +144,7 @@ export default function TransactionsPage() {
           <Button 
             variant="outline" 
             size="sm" 
-            className="h-11 px-5 rounded-2xl font-black text-xs border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-md transition-all hover:shadow-md active:scale-95"
+            className="h-11 px-5 rounded-2xl font-semibold text-xs border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-md transition-all hover:shadow-md active:scale-95"
           >
             <Download className="mr-2 h-4 w-4 text-slate-500" />
             ส่งออก
@@ -142,7 +156,7 @@ export default function TransactionsPage() {
               setIsFormOpen(true)
             }}
             size="sm"
-            className="h-11 px-6 rounded-2xl font-black text-xs bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-500/25 transition-all active:scale-95 flex items-center gap-2"
+            className="h-11 px-6 rounded-2xl font-semibold text-xs bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-500/25 transition-all active:scale-95 flex items-center gap-2"
           >
             <div className="bg-white/20 p-1 rounded-lg">
               <Plus className="h-3.5 w-3.5 text-white" />
@@ -153,25 +167,25 @@ export default function TransactionsPage() {
       </div>
 
       {/* Filters & Search */}
-      <div className="flex flex-col md:flex-row gap-6 items-center justify-between bg-white/60 dark:bg-slate-950/40 backdrop-blur-xl p-5 rounded-[2rem] border border-slate-200/50 dark:border-slate-800/50 shadow-xl shadow-slate-200/10 dark:shadow-none">
+      <div className="flex flex-col md:flex-row gap-6 items-center justify-between bg-white/60 dark:bg-slate-950/40 backdrop-blur-xl p-5 rounded-xl border border-slate-200/50 dark:border-slate-800/50 shadow-xl shadow-slate-200/10 dark:shadow-none">
         <div className="relative w-full md:w-[450px] group">
-          <div className="absolute inset-0 bg-blue-500/5 rounded-2xl blur-xl group-focus-within:bg-blue-500/10 transition-all" />
+          <div className="absolute inset-0 bg-blue-500/5 rounded-xl blur-xl group-focus-within:bg-blue-500/10 transition-all" />
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 group-focus-within:text-blue-500 transition-colors" />
           <Input 
             placeholder="ค้นหาตามรายละเอียด, หมวดหมู่, หรือยอดเงิน..." 
-            className="pl-11 h-12 rounded-2xl text-sm font-bold border-none bg-white dark:bg-slate-900/80 shadow-sm ring-1 ring-slate-200/50 dark:ring-slate-800 focus-visible:ring-2 focus-visible:ring-blue-500/50 transition-all"
+            className="pl-11 h-11 rounded-lg text-sm font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 shadow-sm ring-1 ring-slate-200/50 dark:ring-slate-800 focus-visible:ring-2 focus-visible:ring-blue-500/50 transition-all"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
         <div className="flex items-center gap-4 w-full md:w-auto">
-          <Button variant="ghost" size="sm" className="h-12 px-5 rounded-2xl text-xs font-black text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+          <Button variant="ghost" size="sm" className="h-10 px-4 rounded-lg text-xs font-medium text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
             <Filter className="mr-2 h-4 w-4" />
             ตัวกรอง
           </Button>
           <div className="h-8 w-px bg-slate-200 dark:bg-slate-800 hidden md:block" />
           <div className="bg-blue-50 dark:bg-blue-950/30 px-4 py-2 rounded-xl border border-blue-100 dark:border-blue-900/30">
-            <p className="text-[11px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest">
+            <p className="text-[11px] font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-widest">
                {filteredTransactions.length} รายการ
             </p>
           </div>
@@ -199,12 +213,12 @@ export default function TransactionsPage() {
           setEditingTransaction(null)
         }
       }}>
-        <DialogContent className="sm:max-w-[550px] rounded-[2.5rem] border-none shadow-2xl p-8 bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl">
+        <DialogContent className="sm:max-w-[550px] rounded-2xl border-none shadow-2xl p-8 bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl">
           <DialogHeader className="mb-6">
             <div className="w-12 h-12 bg-blue-600/10 rounded-2xl flex items-center justify-center mb-4">
                <Receipt className="h-6 w-6 text-blue-600" />
             </div>
-            <DialogTitle className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+            <DialogTitle className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
               {editingTransaction ? 'แก้ไขรายการเงิน' : 'เพิ่มรายการใหม่'}
             </DialogTitle>
             <DialogDescription className="text-sm font-medium text-slate-500">
@@ -222,6 +236,24 @@ export default function TransactionsPage() {
           />
         </DialogContent>
       </Dialog>
+
+      <AlertDialog open={!!deletingId} onOpenChange={(o) => !o && setDeletingId(null)}>
+        <AlertDialogContent className="rounded-2xl">
+          <AlertDialogHeader>
+            <AlertDialogTitle>ยืนยันการลบรายการ</AlertDialogTitle>
+            <AlertDialogDescription>
+              คุณแน่ใจหรือไม่? การกระทำนี้ไม่สามารถเลิกทำได้
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel className="rounded-lg">ยกเลิก</AlertDialogCancel>
+            <AlertDialogAction onClick={confirmDelete} 
+              className="bg-red-600 hover:bg-red-700 rounded-lg">
+              ลบรายการ
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </motion.div>
   )
 }

@@ -86,7 +86,7 @@ export default function TrendChart({ data }: TrendChartProps) {
                             />
                             {entry.name}
                           </span>
-                          <span className="font-extrabold text-slate-850 dark:text-slate-100">
+                          <span className="font-bold text-slate-850 dark:text-slate-100">
                             ฿{formatNumber(entry.value)}
                           </span>
                         </div>

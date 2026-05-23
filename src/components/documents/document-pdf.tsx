@@ -4,15 +4,27 @@ import React from 'react'
 import { Page, Text, View, Document, StyleSheet, Font, Image } from '@react-pdf/renderer'
 import { formatCurrency, formatDate } from '@/lib/utils'
 
-// Note: In a real enterprise app, you would load a Thai font like Sarabun here.
-// Font.register({ family: 'Sarabun', src: '/fonts/Sarabun-Regular.ttf' })
+// Register Sarabun Thai font for PDF rendering
+Font.register({
+  family: 'Sarabun',
+  fonts: [
+    {
+      src: 'https://fonts.gstatic.com/s/sarabun/v13/DtVhJx26TKEr37c9YL5rilssECs.ttf',
+      fontWeight: 400,
+    },
+    {
+      src: 'https://fonts.gstatic.com/s/sarabun/v13/DtVmJx26TKEr37c9YHZJmnssECsyoc4.ttf',
+      fontWeight: 700,
+    },
+  ],
+})
 
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
     backgroundColor: '#ffffff',
     padding: 40,
-    fontFamily: 'Helvetica', // Fallback
+    fontFamily: 'Sarabun',
   },
   header: {
     flexDirection: 'row',
@@ -25,11 +37,13 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     color: '#0f172a',
+    fontFamily: 'Sarabun',
   },
   companyInfo: {
     fontSize: 10,
     color: '#64748b',
     marginTop: 8,
+    fontFamily: 'Sarabun',
   },
   docInfo: {
     alignItems: 'flex-end',
@@ -42,6 +56,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#0f172a',
     marginBottom: 10,
+    fontFamily: 'Sarabun',
   },
   table: {
     width: '100%',
@@ -60,13 +75,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#f1f5f9',
   },
-  col1: { width: '5%', fontSize: 10, color: '#334155' },
-  col2: { width: '45%', fontSize: 10, color: '#334155' },
-  col3: { width: '15%', fontSize: 10, color: '#334155', textAlign: 'right' },
-  col4: { width: '15%', fontSize: 10, color: '#334155', textAlign: 'right' },
-  col5: { width: '20%', fontSize: 10, color: '#334155', textAlign: 'right' },
+  col1: { width: '5%', fontSize: 10, color: '#334155', fontFamily: 'Sarabun' },
+  col2: { width: '45%', fontSize: 10, color: '#334155', fontFamily: 'Sarabun' },
+  col3: { width: '15%', fontSize: 10, color: '#334155', textAlign: 'right', fontFamily: 'Sarabun' },
+  col4: { width: '15%', fontSize: 10, color: '#334155', textAlign: 'right', fontFamily: 'Sarabun' },
+  col5: { width: '20%', fontSize: 10, color: '#334155', textAlign: 'right', fontFamily: 'Sarabun' },
   
-  colHeader: { fontSize: 10, fontWeight: 'bold', color: '#0f172a' },
+  colHeader: { fontSize: 10, fontWeight: 'bold', color: '#0f172a', fontFamily: 'Sarabun' },
   
   totalsContainer: {
     marginTop: 20,
@@ -84,12 +99,14 @@ const styles = StyleSheet.create({
     color: '#64748b',
     textAlign: 'right',
     paddingRight: 10,
+    fontFamily: 'Sarabun',
   },
   totalValue: {
     width: '50%',
     fontSize: 10,
     color: '#0f172a',
     textAlign: 'right',
+    fontFamily: 'Sarabun',
   },
   grandTotalLabel: {
     width: '50%',
@@ -98,6 +115,7 @@ const styles = StyleSheet.create({
     color: '#0f172a',
     textAlign: 'right',
     paddingRight: 10,
+    fontFamily: 'Sarabun',
   },
   grandTotalValue: {
     width: '50%',
@@ -105,6 +123,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#2563eb',
     textAlign: 'right',
+    fontFamily: 'Sarabun',
   },
   qrContainer: {
     marginTop: 40,
@@ -117,6 +136,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: '#64748b',
     marginTop: 8,
+    fontFamily: 'Sarabun',
   }
 })
 
@@ -155,9 +175,9 @@ export function DocumentPDF({ document, org, qrCodeDataUrl }: { document: any, o
         {document.client && (
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Bill To:</Text>
-            <Text style={{ fontSize: 11, fontWeight: 'bold' }}>{document.client.name}</Text>
-            {document.client.address && <Text style={{ fontSize: 10, color: '#64748b', marginTop: 4 }}>{document.client.address}</Text>}
-            {document.client.taxId && <Text style={{ fontSize: 10, color: '#64748b', marginTop: 4 }}>Tax ID: {document.client.taxId}</Text>}
+            <Text style={{ fontSize: 11, fontWeight: 'bold', fontFamily: 'Sarabun' }}>{document.client.name}</Text>
+            {document.client.address && <Text style={{ fontSize: 10, color: '#64748b', marginTop: 4, fontFamily: 'Sarabun' }}>{document.client.address}</Text>}
+            {document.client.taxId && <Text style={{ fontSize: 10, color: '#64748b', marginTop: 4, fontFamily: 'Sarabun' }}>Tax ID: {document.client.taxId}</Text>}
           </View>
         )}
 
@@ -203,7 +223,7 @@ export function DocumentPDF({ document, org, qrCodeDataUrl }: { document: any, o
         {qrCodeDataUrl && document.type === 'INVOICE' && (
           <View style={styles.qrContainer}>
             <Text style={styles.sectionTitle}>Scan to Pay (PromptPay)</Text>
-            <Image src={qrCodeDataUrl} style={{ width: 100, height: 100 }} />
+            <Image src={qrCodeDataUrl} style={{ width: 100, height: 100 }} alt="PromptPay QR Code" />
             <Text style={styles.qrText}>Amount: {formatCurrency(document.total)}</Text>
           </View>
         )}

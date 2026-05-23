@@ -404,12 +404,12 @@ function DocumentDetailContent() {
                     />
                   </div>
                 ) : (
-                  <div className="h-12 w-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center font-extrabold text-xl shadow-sm border border-blue-100">
+                  <div className="h-12 w-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center font-bold text-xl shadow-sm border border-blue-100">
                     {currentOrg?.name?.charAt(0) || 'E'}
                   </div>
                 )}
                 <div>
-                  <h2 className="text-lg font-extrabold tracking-tight text-slate-800">{currentOrg?.name}</h2>
+                  <h2 className="text-lg font-bold tracking-tight text-slate-800">{currentOrg?.name}</h2>
                   <p className="text-xs text-slate-500 font-semibold mt-0.5">สำนักงานใหญ่</p>
                 </div>
               </div>
@@ -421,7 +421,7 @@ function DocumentDetailContent() {
             </div>
 
             <div className="text-left md:text-right space-y-3">
-              <div className="inline-block px-3 py-1 bg-blue-50 text-blue-700 font-extrabold text-sm rounded-lg uppercase tracking-wider print-badge">
+              <div className="inline-block px-3 py-1 bg-blue-50 text-blue-700 font-bold text-sm rounded-lg uppercase tracking-wider print-badge">
                 {getDocTypeTitle(document.type)}
               </div>
               <div className="space-y-1.5 text-xs text-slate-600">
@@ -440,7 +440,7 @@ function DocumentDetailContent() {
           {/* Client Details section */}
           <div className="py-8 border-b border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             <div className="space-y-2">
-              <h3 className="text-xs font-extrabold uppercase text-slate-400 tracking-wider">ลูกค้า / ผู้รับบริการ (Client)</h3>
+              <h3 className="text-xs font-bold uppercase text-slate-400 tracking-wider">ลูกค้า / ผู้รับบริการ (Client)</h3>
               {document.client ? (
                 <div className="space-y-1.5">
                   <h4 className="text-sm font-bold text-slate-800">{document.client.name}</h4>
@@ -458,7 +458,7 @@ function DocumentDetailContent() {
             </div>
 
             <div className="space-y-3 text-xs text-slate-600">
-              <h3 className="text-xs font-extrabold uppercase text-slate-400 tracking-wider">ข้อมูลการชำระเงิน</h3>
+              <h3 className="text-xs font-bold uppercase text-slate-400 tracking-wider">ข้อมูลการชำระเงิน</h3>
               <div className="space-y-1">
                 <p className="flex items-center"><CreditCard className="h-3.5 w-3.5 mr-1.5 text-slate-400" /> โอนเงินผ่านบัญชีธนาคาร</p>
                 <p className="font-semibold text-slate-700 pl-5">บจก. เอส ด็อค โซลูชั่นส์</p>
@@ -471,7 +471,7 @@ function DocumentDetailContent() {
           <div className="py-8 min-h-[220px]">
             <table className="w-full text-xs text-left border-collapse">
               <thead>
-                <tr className="border-b-2 border-slate-300 text-slate-800 font-extrabold">
+                <tr className="border-b-2 border-slate-300 text-slate-800 font-bold">
                   <th className="py-2.5 w-12 text-center">ลำดับ</th>
                   <th className="py-2.5">รายละเอียดรายการสินค้า / บริการ</th>
                   <th className="py-2.5 text-right w-20">จำนวน</th>
@@ -518,7 +518,7 @@ function DocumentDetailContent() {
                 <span>ภาษีมูลค่าเพิ่ม (VAT 7%):</span>
                 <span>{formatCurrency(document.vatAmount)}</span>
               </div>
-              <div className="flex justify-between text-slate-900 font-extrabold text-sm border-t border-slate-100 pt-2">
+              <div className="flex justify-between text-slate-900 font-bold text-sm border-t border-slate-100 pt-2">
                 <span>ยอดเงินสุทธิ (Total Amount):</span>
                 <span>{formatCurrency(document.total)}</span>
               </div>
@@ -528,7 +528,7 @@ function DocumentDetailContent() {
           {/* Notes and signatures section */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-16 mt-8 border-t border-slate-100">
             <div className="space-y-2">
-              <h4 className="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider">หมายเหตุ (Notes)</h4>
+              <h4 className="text-[10px] font-bold uppercase text-slate-400 tracking-wider">หมายเหตุ (Notes)</h4>
               <p className="text-xs text-slate-600 leading-relaxed font-medium bg-slate-50/50 rounded-lg p-3 min-h-[60px] border border-slate-100/50">
                 {document.notes || 'ไม่มีหมายเหตุเพิ่มเติม'}
               </p>

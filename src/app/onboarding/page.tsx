@@ -332,7 +332,7 @@ function OnboardingContent() {
         <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground mb-4 shadow-lg shadow-primary/20">
           <Building2 className="h-6 w-6" />
         </div>
-        <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+        <h2 className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
           ยินดีต้อนรับสู่ WorkflowOS
         </h2>
         <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">

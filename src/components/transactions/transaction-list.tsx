@@ -53,11 +53,11 @@ export function TransactionList({ transactions, onEdit, onDelete }: TransactionL
       <Table>
         <TableHeader className="bg-slate-50/50 dark:bg-slate-900/40">
           <TableRow className="hover:bg-transparent border-b-slate-100 dark:border-b-slate-800/50">
-            <TableHead className="w-[140px] font-black uppercase text-[10px] tracking-widest px-6">วันที่</TableHead>
-            <TableHead className="font-black uppercase text-[10px] tracking-widest px-4">รายการ</TableHead>
-            <TableHead className="font-black uppercase text-[10px] tracking-widest px-4">หมวดหมู่</TableHead>
-            <TableHead className="font-black uppercase text-[10px] tracking-widest px-4">วิธีการชำระ</TableHead>
-            <TableHead className="text-right font-black uppercase text-[10px] tracking-widest px-6">จำนวนเงิน</TableHead>
+            <TableHead className="w-[140px] font-medium text-xs text-slate-500 uppercase tracking-wider px-6">วันที่</TableHead>
+            <TableHead className="font-medium text-xs text-slate-500 uppercase tracking-wider px-4">รายการ</TableHead>
+            <TableHead className="font-medium text-xs text-slate-500 uppercase tracking-wider px-4">หมวดหมู่</TableHead>
+            <TableHead className="font-medium text-xs text-slate-500 uppercase tracking-wider px-4">วิธีการชำระ</TableHead>
+            <TableHead className="text-right font-medium text-xs text-slate-500 uppercase tracking-wider px-6">จำนวนเงิน</TableHead>
             <TableHead className="w-[80px]"></TableHead>
           </TableRow>
         </TableHeader>
@@ -70,7 +70,7 @@ export function TransactionList({ transactions, onEdit, onDelete }: TransactionL
               transition={{ delay: idx * 0.03 }}
               className="group hover:bg-blue-50/20 dark:hover:bg-blue-900/5 transition-all border-b-slate-100 dark:border-b-slate-800/30"
             >
-              <TableCell className="text-xs text-slate-400 font-bold px-6">
+              <TableCell className="text-xs text-slate-500 font-normal px-6">
                 {formatDate(tx.date)}
               </TableCell>
               <TableCell className="px-4 py-5">
@@ -86,21 +86,21 @@ export function TransactionList({ transactions, onEdit, onDelete }: TransactionL
                     )}
                   </div>
                   <div className="flex flex-col gap-0.5">
-                    <span className="text-sm font-black text-slate-900 dark:text-white line-clamp-1">{tx.description}</span>
+                    <span className="text-sm font-medium text-slate-900 dark:text-white line-clamp-1">{tx.description}</span>
                     {tx.notes && <span className="text-[10px] text-slate-400 font-medium truncate max-w-[200px]">{tx.notes}</span>}
                   </div>
                 </div>
               </TableCell>
               <TableCell className="px-4">
-                <Badge variant="outline" className="text-[10px] font-black px-3 py-1 rounded-lg border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 shadow-sm">
+                <Badge variant="outline" className="text-[11px] font-semibold px-3 py-1 rounded-lg border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 shadow-sm">
                   {tx.category?.name || 'ทั่วไป'}
                 </Badge>
               </TableCell>
-              <TableCell className="text-[11px] font-bold text-slate-500 dark:text-slate-400 px-4">
+              <TableCell className="text-[11px] font-medium text-slate-500 dark:text-slate-400 px-4">
                 {tx.paymentMethod || '-'}
               </TableCell>
               <TableCell className="text-right px-6">
-                <span className={`text-[15px] font-black tracking-tight ${tx.type === 'INCOME' ? 'text-green-600 dark:text-green-400' : 'text-slate-900 dark:text-white'}`}>
+                <span className={`text-[15px] font-semibold tracking-tight ${tx.type === 'INCOME' ? 'text-green-600 dark:text-green-400' : 'text-slate-900 dark:text-white'}`}>
                   {tx.type === 'INCOME' ? '+' : '-'}{formatCurrency(tx.amount)}
                 </span>
               </TableCell>

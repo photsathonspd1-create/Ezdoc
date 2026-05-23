@@ -432,14 +432,14 @@ export default function SettingsPage() {
   return (
     <div className="space-y-6 animate-fade-in-up">
       <div className="flex flex-col gap-1">
-        <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">ตั้งค่าระบบ (Settings)</h1>
+        <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">ตั้งค่าระบบ (Settings)</h1>
         <p className="text-slate-500 dark:text-slate-400 text-sm">
           ปรับแต่งข้อมูลองค์กร จัดการสิทธิ์ และตั้งค่าการเชื่อมต่อ API ต่างๆ
         </p>
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="flex flex-col lg:flex-row gap-6">
-        <TabsList className="flex flex-col w-full lg:w-64 h-auto p-2 rounded-2xl glass-effect border-none shrink-0 gap-1 bg-white/50 dark:bg-slate-950/50">
+        <TabsList className="flex flex-col w-full lg:w-64 h-auto p-1.5 rounded-xl border border-slate-200 dark:border-slate-800 shrink-0 gap-1 bg-slate-50 dark:bg-slate-950">
           <TabsTrigger value="company" className="w-full justify-start rounded-xl gap-3 text-sm font-semibold px-4 py-3 data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:shadow-sm">
             <Building2 className="h-4 w-4" /> ข้อมูลบริษัท
           </TabsTrigger>
@@ -476,7 +476,7 @@ export default function SettingsPage() {
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Logo section */}
-                <div className="flex flex-col sm:flex-row gap-6 items-center p-6 rounded-3xl glass-effect">
+                <div className="flex flex-col sm:flex-row gap-6 items-center p-6 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/30">
                   <div className="relative group rounded-2xl w-28 h-28 flex items-center justify-center bg-white dark:bg-slate-950 overflow-hidden shadow-2xl ring-1 ring-white/20">
                     {logoPreview ? (
                       // eslint-disable-next-line @next/next/no-img-element
@@ -491,10 +491,10 @@ export default function SettingsPage() {
                     )}
                   </div>
                   <div className="space-y-2 text-center sm:text-left flex-1">
-                    <h4 className="font-black text-sm tracking-tight">โลโก้องค์กร</h4>
+                    <h4 className="font-medium text-sm tracking-tight">โลโก้องค์กร</h4>
                     <p className="text-[11px] text-slate-500 font-medium">สัดส่วนที่แนะนำ 1:1 (Square) รองรับไฟล์ JPG, PNG, WEBP</p>
                     <div className="flex items-center gap-2 justify-center sm:justify-start pt-2">
-                      <Button type="button" variant="outline" size="sm" className="relative gap-2 h-9 text-xs font-bold rounded-xl border-none glass-effect hover:bg-white/20 transition-all">
+                      <Button type="button" variant="outline" size="sm" className="relative gap-2 h-9 text-xs font-semibold rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm active:scale-95 transition-all">
                         <Upload className="h-4 w-4 text-blue-500" /> เลือกไฟล์ใหม่
                         <input
                           type="file"
@@ -598,7 +598,7 @@ export default function SettingsPage() {
                 <Button 
                   type="submit" 
                   disabled={isUpdatingOrg} 
-                  className="h-12 px-8 rounded-2xl font-black text-sm bg-blue-600 hover:bg-blue-700 shadow-xl shadow-blue-500/25 transition-all active:scale-95 gap-2"
+                  className="h-12 px-8 rounded-2xl font-medium text-sm bg-blue-600 hover:bg-blue-700 shadow-xl shadow-blue-500/25 transition-all active:scale-95 gap-2"
                 >
                   {isUpdatingOrg ? (
                     <>
@@ -764,10 +764,10 @@ export default function SettingsPage() {
                 </div>
               )}
               <CardHeader>
-                <h3 className="font-extrabold text-lg text-slate-900 dark:text-white">Free Plan</h3>
+                <h3 className="font-bold text-lg text-slate-900 dark:text-white">Free Plan</h3>
                 <CardDescription>เหมาะสำหรับการเริ่มต้นทำธุรกิจ</CardDescription>
                 <div className="mt-4 flex items-baseline text-slate-900 dark:text-white">
-                  <span className="text-4xl font-extrabold tracking-tight">฿0</span>
+                  <span className="text-4xl font-bold tracking-tight">฿0</span>
                   <span className="ml-1 text-xl font-semibold text-slate-500">/เดือน</span>
                 </div>
               </CardHeader>
@@ -800,10 +800,10 @@ export default function SettingsPage() {
                 แนะนำสำหรับ SMEs
               </div>
               <CardHeader>
-                <h3 className="font-extrabold text-lg text-slate-900 dark:text-white">Pro Plan</h3>
+                <h3 className="font-bold text-lg text-slate-900 dark:text-white">Pro Plan</h3>
                 <CardDescription>สำหรับธุรกิจขนาดเล็กและร้านค้าออนไลน์</CardDescription>
                 <div className="mt-4 flex items-baseline text-slate-900 dark:text-white">
-                  <span className="text-4xl font-extrabold tracking-tight">฿390</span>
+                  <span className="text-4xl font-bold tracking-tight">฿390</span>
                   <span className="ml-1 text-xl font-semibold text-slate-500">/เดือน</span>
                 </div>
               </CardHeader>
@@ -836,10 +836,10 @@ export default function SettingsPage() {
             {/* Business tier */}
             <Card className="premium-card">
               <CardHeader>
-                <h3 className="font-extrabold text-lg text-slate-900 dark:text-white">Business Plan</h3>
+                <h3 className="font-bold text-lg text-slate-900 dark:text-white">Business Plan</h3>
                 <CardDescription>สำหรับธุรกิจขนาดกลางและบริษัทที่ต้องการระบบครบวงจร</CardDescription>
                 <div className="mt-4 flex items-baseline text-slate-900 dark:text-white">
-                  <span className="text-4xl font-extrabold tracking-tight">฿990</span>
+                  <span className="text-4xl font-bold tracking-tight">฿990</span>
                   <span className="ml-1 text-xl font-semibold text-slate-500">/เดือน</span>
                 </div>
               </CardHeader>

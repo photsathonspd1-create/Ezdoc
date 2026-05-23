@@ -132,7 +132,7 @@ export function TransactionForm({ orgId, initialData, onSubmit, onCancel }: Tran
       
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onFormSubmit)} className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FormField
               control={form.control}
               name="type"
@@ -144,7 +144,7 @@ export function TransactionForm({ orgId, initialData, onSubmit, onCancel }: Tran
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger className="h-9 text-xs font-semibold rounded-xl">
+                      <SelectTrigger className="h-10 text-xs font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500/20">
                         <SelectValue placeholder="เลือกประเภท" />
                       </SelectTrigger>
                     </FormControl>
@@ -170,7 +170,7 @@ export function TransactionForm({ orgId, initialData, onSubmit, onCancel }: Tran
                         <Button
                           variant={"outline"}
                           className={cn(
-                            "h-9 pl-3 text-left font-semibold text-xs rounded-xl",
+                            "h-10 pl-3 text-left font-medium text-xs border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-lg shadow-sm",
                             !field.value && "text-muted-foreground"
                           )}
                         >
@@ -207,14 +207,14 @@ export function TransactionForm({ orgId, initialData, onSubmit, onCancel }: Tran
               <FormItem>
                 <FormLabel className="text-xs font-bold">รายละเอียด / คำอธิบาย</FormLabel>
                 <FormControl>
-                  <Input placeholder="เช่น ค่าบริการทำเว็บไซต์, ซื้ออุปกรณ์สำนักงาน" {...field} className="h-9 text-xs font-semibold rounded-xl" />
+                  <Input placeholder="เช่น ค่าบริการทำเว็บไซต์, ซื้ออุปกรณ์สำนักงาน" {...field} className="h-10 text-xs font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500/20" />
                 </FormControl>
                 <FormMessage className="text-[10px]" />
               </FormItem>
             )}
           />
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FormField
               control={form.control}
               name="amount"
@@ -222,7 +222,7 @@ export function TransactionForm({ orgId, initialData, onSubmit, onCancel }: Tran
                 <FormItem>
                   <FormLabel className="text-xs font-bold">จำนวนเงินรวม (รวม VAT)</FormLabel>
                   <FormControl>
-                    <Input type="number" step="0.01" placeholder="0.00" {...field} className="h-9 text-xs font-extrabold rounded-xl" />
+                    <Input type="number" step="0.01" placeholder="0.00" {...field} className="h-10 text-xs font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-lg shadow-sm focus-visible:ring-2 focus-visible:ring-blue-500/20" />
                   </FormControl>
                   <FormMessage className="text-[10px]" />
                 </FormItem>
@@ -240,7 +240,7 @@ export function TransactionForm({ orgId, initialData, onSubmit, onCancel }: Tran
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger className="h-9 text-xs font-semibold rounded-xl">
+                      <SelectTrigger className="h-10 text-xs font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500/20">
                         <SelectValue placeholder={loadingCategories ? "กำลังโหลด..." : "เลือกหมวดหมู่"} />
                       </SelectTrigger>
                     </FormControl>
@@ -258,7 +258,7 @@ export function TransactionForm({ orgId, initialData, onSubmit, onCancel }: Tran
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FormField
               control={form.control}
               name="paymentMethod"
@@ -270,7 +270,7 @@ export function TransactionForm({ orgId, initialData, onSubmit, onCancel }: Tran
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger className="h-9 text-xs font-semibold rounded-xl">
+                      <SelectTrigger className="h-10 text-xs font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500/20">
                         <SelectValue placeholder="เลือกวิธีการ" />
                       </SelectTrigger>
                     </FormControl>
@@ -297,7 +297,7 @@ export function TransactionForm({ orgId, initialData, onSubmit, onCancel }: Tran
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger className="h-9 text-xs font-semibold rounded-xl">
+                      <SelectTrigger className="h-10 text-xs font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500/20">
                         <SelectValue placeholder="เลือกอัตรา" />
                       </SelectTrigger>
                     </FormControl>
@@ -322,7 +322,7 @@ export function TransactionForm({ orgId, initialData, onSubmit, onCancel }: Tran
                   <Textarea 
                     placeholder="ข้อมูลเพิ่มเติม..." 
                     {...field} 
-                    className="text-xs font-semibold rounded-xl min-h-[80px]"
+                    className="text-xs font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-lg shadow-sm min-h-[80px] focus-visible:ring-2 focus-visible:ring-blue-500/20"
                   />
                 </FormControl>
                 <FormMessage className="text-[10px]" />
@@ -334,14 +334,14 @@ export function TransactionForm({ orgId, initialData, onSubmit, onCancel }: Tran
             <Button
               type="button"
               variant="outline"
-              className="flex-1 h-10 rounded-xl font-bold text-xs"
+              className="flex-1 h-10 rounded-lg font-semibold text-xs border border-slate-200 dark:border-slate-800"
               onClick={onCancel}
             >
               ยกเลิก
             </Button>
             <Button
               type="submit"
-              className="flex-1 h-10 rounded-xl font-bold text-xs bg-blue-600 hover:bg-blue-700"
+              className="flex-1 h-10 rounded-lg font-semibold text-xs bg-blue-600 hover:bg-blue-700 text-white shadow-md active:scale-95 transition-all"
               disabled={isSubmitting}
             >
               {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}

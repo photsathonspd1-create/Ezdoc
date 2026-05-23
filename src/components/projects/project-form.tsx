@@ -77,14 +77,14 @@ export function ProjectForm({
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6 py-2 text-slate-800 dark:text-slate-200">
       <div className="space-y-2">
-        <Label htmlFor="name" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+        <Label htmlFor="name" className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
           ชื่อโครงการ / งาน <span className="text-red-500">*</span>
         </Label>
         <Input
           id="name"
           placeholder="เช่น พัฒนาเว็บไซต์ E-Commerce"
           {...register('name')}
-          className={`h-11 rounded-2xl text-sm font-black border-none glass-effect shadow-sm focus:ring-2 focus:ring-blue-500/20 ${errors.name ? 'ring-2 ring-red-500/50' : ''}`}
+          className={`h-11 rounded-lg text-sm font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm focus-visible:ring-2 focus-visible:ring-blue-500/20 ${errors.name ? 'ring-2 ring-red-500/50' : ''}`}
         />
         {errors.name && (
           <p className="text-red-500 text-[10px] font-bold mt-1 pl-2">{errors.name.message}</p>
@@ -93,17 +93,17 @@ export function ProjectForm({
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <Label htmlFor="clientId" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+          <Label htmlFor="clientId" className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
             ลูกค้า / ผู้ว่าจ้าง
           </Label>
           <Select
             value={currentClientId || 'none'}
             onValueChange={(val) => setValue('clientId', val === 'none' ? '' : (val ?? ''))}
           >
-            <SelectTrigger id="clientId" className="h-11 rounded-2xl text-sm font-bold border-none glass-effect shadow-sm">
+            <SelectTrigger id="clientId" className="h-11 rounded-lg text-sm font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm focus:ring-2 focus:ring-blue-500/20">
               <SelectValue placeholder="เลือกลูกค้า" />
             </SelectTrigger>
-            <SelectContent className="rounded-2xl border-none shadow-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl">
+            <SelectContent className="rounded-lg border-none shadow-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl">
               <SelectItem value="none" className="text-xs font-medium">-- ไม่ระบุ --</SelectItem>
               {clients.map((c) => (
                 <SelectItem key={c.id} value={c.id} className="text-xs font-bold py-2.5">
@@ -115,21 +115,21 @@ export function ProjectForm({
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="status" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+          <Label htmlFor="status" className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
             สถานะโครงการ
           </Label>
           <Select
             value={currentStatus}
             onValueChange={(val) => setValue('status', val as ProjectStatus)}
           >
-            <SelectTrigger id="status" className="h-11 rounded-2xl text-sm font-bold border-none glass-effect shadow-sm">
+            <SelectTrigger id="status" className="h-11 rounded-lg text-sm font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm focus:ring-2 focus:ring-blue-500/20">
               <SelectValue placeholder="เลือกสถานะ" />
             </SelectTrigger>
-            <SelectContent className="rounded-2xl border-none shadow-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl">
-              <SelectItem value="PENDING" className="text-xs font-black text-amber-600 py-2.5">รอดำเนินการ (Pending)</SelectItem>
-              <SelectItem value="ACTIVE" className="text-xs font-black text-blue-600 py-2.5">กำลังดำเนินการ (Active)</SelectItem>
-              <SelectItem value="COMPLETED" className="text-xs font-black text-green-600 py-2.5">เสร็จสิ้น (Completed)</SelectItem>
-              <SelectItem value="CANCELLED" className="text-xs font-black text-rose-600 py-2.5">ยกเลิก (Cancelled)</SelectItem>
+            <SelectContent className="rounded-lg border-none shadow-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl">
+              <SelectItem value="PENDING" className="text-xs font-semibold text-amber-600 py-2.5">รอดำเนินการ (Pending)</SelectItem>
+              <SelectItem value="ACTIVE" className="text-xs font-semibold text-blue-600 py-2.5">กำลังดำเนินการ (Active)</SelectItem>
+              <SelectItem value="COMPLETED" className="text-xs font-semibold text-green-600 py-2.5">เสร็จสิ้น (Completed)</SelectItem>
+              <SelectItem value="CANCELLED" className="text-xs font-semibold text-rose-600 py-2.5">ยกเลิก (Cancelled)</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -137,7 +137,7 @@ export function ProjectForm({
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         <div className="space-y-2">
-          <Label htmlFor="budget" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+          <Label htmlFor="budget" className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
             งบประมาณ (บาท)
           </Label>
           <Input
@@ -146,49 +146,49 @@ export function ProjectForm({
             step="0.01"
             placeholder="0.00"
             {...register('budget')}
-            className="h-11 rounded-2xl text-sm font-black border-none glass-effect shadow-sm"
+            className="h-11 rounded-lg text-sm font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="startDate" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+          <Label htmlFor="startDate" className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
             วันที่เริ่มต้น
           </Label>
           <Input
             id="startDate"
             type="date"
             {...register('startDate')}
-            className="h-11 rounded-2xl text-xs font-bold border-none glass-effect shadow-sm"
+            className="h-11 rounded-lg text-xs font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm focus:ring-2 focus:ring-blue-500/20"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="dueDate" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+          <Label htmlFor="dueDate" className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
             กำหนดส่งงาน
           </Label>
           <Input
             id="dueDate"
             type="date"
             {...register('dueDate')}
-            className="h-11 rounded-2xl text-xs font-bold border-none glass-effect shadow-sm"
+            className="h-11 rounded-lg text-xs font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm focus:ring-2 focus:ring-blue-500/20"
           />
         </div>
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="tags" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+        <Label htmlFor="tags" className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
           แท็ก / หมวดหมู่ย่อย
         </Label>
         <Input
           id="tags"
           placeholder="เช่น เว็บไซต์, React, Supabase"
           {...register('tags')}
-          className="h-11 rounded-2xl text-sm font-bold border-none glass-effect shadow-sm"
+          className="h-11 rounded-lg text-sm font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm focus:ring-2 focus:ring-blue-500/20"
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="notes" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+        <Label htmlFor="notes" className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
           หมายเหตุ / รายละเอียดเพิ่มเติม
         </Label>
         <Textarea
@@ -196,7 +196,7 @@ export function ProjectForm({
           rows={4}
           placeholder="รายละเอียดเกี่ยวกับตัวงาน ขอบเขตงาน หรือข้อตกลงพิเศษ..."
           {...register('notes')}
-          className="rounded-3xl text-sm font-medium border-none glass-effect shadow-sm min-h-[100px]"
+          className="rounded-lg text-sm font-medium border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm min-h-[100px] focus-visible:ring-2 focus-visible:ring-blue-500/20"
         />
       </div>
 
@@ -205,14 +205,14 @@ export function ProjectForm({
           type="button"
           variant="outline"
           onClick={onCancel}
-          className="h-12 px-6 rounded-2xl font-black text-xs border-none glass-effect hover:bg-white/10"
+          className="h-11 px-5 rounded-lg font-semibold text-xs border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-850 active:scale-95 transition-all"
           disabled={isSubmitting}
         >
           ยกเลิก
         </Button>
         <Button
           type="submit"
-          className="h-12 px-8 rounded-2xl font-black text-xs bg-blue-600 hover:bg-blue-700 text-white shadow-xl shadow-blue-500/25 transition-all active:scale-95 gap-2"
+          className="h-11 px-6 rounded-lg font-semibold text-xs bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-lg shadow-blue-500/25 active:scale-95 transition-all gap-2"
           disabled={isSubmitting}
         >
           {isSubmitting ? (

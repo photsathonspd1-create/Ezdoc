@@ -4,41 +4,18 @@ export const APP_NAME = 'WorkflowOS'
 
 export interface NavItem {
   href: string
-  labelTh: string
+  labelTh: string     // Full label for header/breadcrumb
+  labelShort: string  // Short label for sidebar nav items
   icon: string
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  {
-    href: '/dashboard',
-    labelTh: 'ภาพรวม (Dashboard)',
-    icon: 'LayoutDashboard',
-  },
-  {
-    href: '/transactions',
-    labelTh: 'รายการเงิน (Transactions)',
-    icon: 'Receipt',
-  },
-  {
-    href: '/projects',
-    labelTh: 'งาน/โปรเจกต์ (Projects)',
-    icon: 'Briefcase',
-  },
-  {
-    href: '/documents',
-    labelTh: 'เอกสาร (Documents)',
-    icon: 'FileText',
-  },
-  {
-    href: '/reports',
-    labelTh: 'รายงาน (Reports)',
-    icon: 'BarChart3',
-  },
-  {
-    href: '/settings',
-    labelTh: 'ตั้งค่า (Settings)',
-    icon: 'Settings',
-  },
+  { href: '/dashboard',    labelTh: 'ภาพรวม',     labelShort: 'ภาพรวม',    icon: 'LayoutDashboard' },
+  { href: '/transactions', labelTh: 'รายการเงิน',  labelShort: 'รายการเงิน', icon: 'Receipt' },
+  { href: '/projects',     labelTh: 'งาน/โปรเจกต์', labelShort: 'โปรเจกต์',  icon: 'Briefcase' },
+  { href: '/documents',    labelTh: 'เอกสาร',      labelShort: 'เอกสาร',    icon: 'FileText' },
+  { href: '/reports',      labelTh: 'รายงาน',      labelShort: 'รายงาน',    icon: 'BarChart3' },
+  { href: '/settings',     labelTh: 'ตั้งค่า',     labelShort: 'ตั้งค่า',   icon: 'Settings' },
 ]
 
 export const TRANSACTION_TYPES = {
