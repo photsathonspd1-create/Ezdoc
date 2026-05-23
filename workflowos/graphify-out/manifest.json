@@ -1,0 +1,492 @@
+{
+  "/mnt/c/Agentic/working/EzDoc/workflowos/.eslintrc.json": {
+    "mtime": 1779461089.5060067,
+    "ast_hash": "58b69b6c9ccf2daa68a06ee47c15e120",
+    "semantic_hash": "58b69b6c9ccf2daa68a06ee47c15e120"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/check_db.js": {
+    "mtime": 1779477723.2245903,
+    "ast_hash": "aa68a5eb970a7d23cc946192cd6f8d26",
+    "semantic_hash": "aa68a5eb970a7d23cc946192cd6f8d26"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/components.json": {
+    "mtime": 1779450668.8781548,
+    "ast_hash": "d37c9d6701bafb02675152df323b964c",
+    "semantic_hash": "d37c9d6701bafb02675152df323b964c"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/next-env.d.ts": {
+    "mtime": 1779450369.701078,
+    "ast_hash": "b5ed9dd8b4c5ba8e5ab8e6a379c15838",
+    "semantic_hash": "b5ed9dd8b4c5ba8e5ab8e6a379c15838"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/next.config.mjs": {
+    "mtime": 1779461091.7583451,
+    "ast_hash": "77319e50a6be68c8ee7d5b2f9c72d372",
+    "semantic_hash": "77319e50a6be68c8ee7d5b2f9c72d372"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/package.json": {
+    "mtime": 1779472296.2681549,
+    "ast_hash": "ca62ce4b692a59af12a555a0802ddf86",
+    "semantic_hash": "ca62ce4b692a59af12a555a0802ddf86"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/postcss.config.mjs": {
+    "mtime": 1779450369.6699855,
+    "ast_hash": "b7941c02b947e17ae32f67ae7e664ec8",
+    "semantic_hash": "b7941c02b947e17ae32f67ae7e664ec8"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/tailwind.config.ts": {
+    "mtime": 1779452160.4319804,
+    "ast_hash": "27d356dc8302de8ab9aea0a836d73192",
+    "semantic_hash": "27d356dc8302de8ab9aea0a836d73192"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/tsconfig.json": {
+    "mtime": 1779450382.88719,
+    "ast_hash": "3bd7a3770c6b44dbcaab1d2f175db8bd",
+    "semantic_hash": "3bd7a3770c6b44dbcaab1d2f175db8bd"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/prisma/seed.ts": {
+    "mtime": 1779464153.052604,
+    "ast_hash": "7a60c12d65c711644c9666adf345a059",
+    "semantic_hash": "7a60c12d65c711644c9666adf345a059"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/prisma/migrations/20260522120436_init/migration.sql": {
+    "mtime": 1779451476.488538,
+    "ast_hash": "9b930fb3518c42092cad6dc1779e4118",
+    "semantic_hash": "9b930fb3518c42092cad6dc1779e4118"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/middleware.ts": {
+    "mtime": 1779461690.2215266,
+    "ast_hash": "1ebe449df170c4a2afa3ed4fca8b5cc7",
+    "semantic_hash": "1ebe449df170c4a2afa3ed4fca8b5cc7"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/layout.tsx": {
+    "mtime": 1779476696.9505515,
+    "ast_hash": "cc51c98dbe86598c5a936d7c276dfa4f",
+    "semantic_hash": "cc51c98dbe86598c5a936d7c276dfa4f"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/page.tsx": {
+    "mtime": 1779450764.340989,
+    "ast_hash": "9180a599444a34e0b3e28aa7981aa0c9",
+    "semantic_hash": "9180a599444a34e0b3e28aa7981aa0c9"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/(auth)/layout.tsx": {
+    "mtime": 1779450774.2556646,
+    "ast_hash": "6e40cf081541dae484472aedc16b13b5",
+    "semantic_hash": "6e40cf081541dae484472aedc16b13b5"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/(auth)/login/page.tsx": {
+    "mtime": 1779451780.44678,
+    "ast_hash": "3a3172ba0b0f4854d94f5a594338c5d4",
+    "semantic_hash": "3a3172ba0b0f4854d94f5a594338c5d4"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/(auth)/register/page.tsx": {
+    "mtime": 1779451967.3347962,
+    "ast_hash": "e5599f5e63cba62521f4e0d5e79fba6c",
+    "semantic_hash": "e5599f5e63cba62521f4e0d5e79fba6c"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/(dashboard)/layout.tsx": {
+    "mtime": 1779475231.5810885,
+    "ast_hash": "e18cebfb67b32f98812658e31662b076",
+    "semantic_hash": "e18cebfb67b32f98812658e31662b076"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/(dashboard)/dashboard/page.tsx": {
+    "mtime": 1779472502.755866,
+    "ast_hash": "721d149281e61aa99295fcf1615501e4",
+    "semantic_hash": "721d149281e61aa99295fcf1615501e4"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/(dashboard)/documents/page.tsx": {
+    "mtime": 1779464242.50299,
+    "ast_hash": "43d885794611a067a70925432aeb9fde",
+    "semantic_hash": "43d885794611a067a70925432aeb9fde"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/(dashboard)/documents/new/page.tsx": {
+    "mtime": 1779503066.7054594,
+    "ast_hash": "abe3632de95dac84fe511d5e71d74d54",
+    "semantic_hash": "abe3632de95dac84fe511d5e71d74d54"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/(dashboard)/documents/[id]/page.tsx": {
+    "mtime": 1779467783.1102076,
+    "ast_hash": "3adf1a8a414559f0265811be2add8a0b",
+    "semantic_hash": "3adf1a8a414559f0265811be2add8a0b"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/(dashboard)/projects/page.tsx": {
+    "mtime": 1779464246.471789,
+    "ast_hash": "804092bcae5c804285a34397da764737",
+    "semantic_hash": "804092bcae5c804285a34397da764737"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/(dashboard)/reports/page.tsx": {
+    "mtime": 1779468261.0339725,
+    "ast_hash": "1dd56d5fc84e4519dbcca0b12c632849",
+    "semantic_hash": "1dd56d5fc84e4519dbcca0b12c632849"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/(dashboard)/settings/page.tsx": {
+    "mtime": 1779502951.1794257,
+    "ast_hash": "2fc45987c3ca13699d421eefa73925e1",
+    "semantic_hash": "2fc45987c3ca13699d421eefa73925e1"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/(dashboard)/transactions/page.tsx": {
+    "mtime": 1779473111.0695462,
+    "ast_hash": "f5f22c2423e810b305f8f92adc62456d",
+    "semantic_hash": "f5f22c2423e810b305f8f92adc62456d"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/auth/callback/route.ts": {
+    "mtime": 1779451753.2872367,
+    "ast_hash": "bb56ca4f4a969f8486655eceafbcb7aa",
+    "semantic_hash": "bb56ca4f4a969f8486655eceafbcb7aa"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/auth/signout/route.ts": {
+    "mtime": 1779451755.7351975,
+    "ast_hash": "b4572cf68cdcb8569611fa9dde62aad1",
+    "semantic_hash": "b4572cf68cdcb8569611fa9dde62aad1"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/categories/route.ts": {
+    "mtime": 1779457690.6557715,
+    "ast_hash": "70561907156d8ae7da5af35f105c1c1c",
+    "semantic_hash": "70561907156d8ae7da5af35f105c1c1c"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/contacts/route.ts": {
+    "mtime": 1779457789.4376588,
+    "ast_hash": "5a0638cbcc83383c9f74aba05c897fc3",
+    "semantic_hash": "5a0638cbcc83383c9f74aba05c897fc3"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/dashboard/summary/route.ts": {
+    "mtime": 1779457771.05145,
+    "ast_hash": "2e6579777965ac3bb23417721cf4557b",
+    "semantic_hash": "2e6579777965ac3bb23417721cf4557b"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/debug/db-check/route.ts": {
+    "mtime": 1779473906.5202441,
+    "ast_hash": "dff6a747a22bca7078f1caeb395d4f45",
+    "semantic_hash": "dff6a747a22bca7078f1caeb395d4f45"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/documents/route.ts": {
+    "mtime": 1779457798.346549,
+    "ast_hash": "cd0e07e527e334ad3c38a3d003177a31",
+    "semantic_hash": "cd0e07e527e334ad3c38a3d003177a31"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/documents/[id]/route.ts": {
+    "mtime": 1779461000.805494,
+    "ast_hash": "ce772b596333555bc98f9cc74bbc77fe",
+    "semantic_hash": "ce772b596333555bc98f9cc74bbc77fe"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/health/route.ts": {
+    "mtime": 1779450761.8466208,
+    "ast_hash": "ee0321318512de12ef143fdbb1f3b222",
+    "semantic_hash": "ee0321318512de12ef143fdbb1f3b222"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/ocr/route.ts": {
+    "mtime": 1779472333.105073,
+    "ast_hash": "3e2dc97d7702e05a9e2629b5503fcade",
+    "semantic_hash": "3e2dc97d7702e05a9e2629b5503fcade"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/orgs/route.ts": {
+    "mtime": 1779451912.0340889,
+    "ast_hash": "b9318583e5ff62bd71112347af20f1b7",
+    "semantic_hash": "b9318583e5ff62bd71112347af20f1b7"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/orgs/[orgId]/route.ts": {
+    "mtime": 1779477861.8996663,
+    "ast_hash": "f79ec98e259b5012c8b34e9abb63bbeb",
+    "semantic_hash": "f79ec98e259b5012c8b34e9abb63bbeb"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/orgs/[orgId]/members/route.ts": {
+    "mtime": 1779451922.7611945,
+    "ast_hash": "e9e174f819cd9f8315016a3b9796d856",
+    "semantic_hash": "e9e174f819cd9f8315016a3b9796d856"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/projects/route.ts": {
+    "mtime": 1779460878.8496797,
+    "ast_hash": "a82e19c12d83bedb5bb7d6a542064f44",
+    "semantic_hash": "a82e19c12d83bedb5bb7d6a542064f44"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/projects/[id]/route.ts": {
+    "mtime": 1779460881.6633716,
+    "ast_hash": "0a9c924c7a16013c1a735bf2800120b1",
+    "semantic_hash": "0a9c924c7a16013c1a735bf2800120b1"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/transactions/route.ts": {
+    "mtime": 1779457700.9897985,
+    "ast_hash": "e8407a7449263f6e601ebbd7db158737",
+    "semantic_hash": "e8407a7449263f6e601ebbd7db158737"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/transactions/[id]/route.ts": {
+    "mtime": 1779457711.4982803,
+    "ast_hash": "2bb60f43ecc1907a270a9cc50b6b256c",
+    "semantic_hash": "2bb60f43ecc1907a270a9cc50b6b256c"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/api/user/me/route.ts": {
+    "mtime": 1779503033.6471686,
+    "ast_hash": "15e314e565947d1313e887e580d10c05",
+    "semantic_hash": "15e314e565947d1313e887e580d10c05"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/app/onboarding/page.tsx": {
+    "mtime": 1779469713.9921746,
+    "ast_hash": "7fadeadf081e299a7f6ae1a7fe620281",
+    "semantic_hash": "7fadeadf081e299a7f6ae1a7fe620281"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/dashboard/trend-chart.tsx": {
+    "mtime": 1779476689.9168532,
+    "ast_hash": "8f1bd13646231ec13271365ff35971e4",
+    "semantic_hash": "8f1bd13646231ec13271365ff35971e4"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/projects/project-form.tsx": {
+    "mtime": 1779503093.2742774,
+    "ast_hash": "97f8c4ebc2fb19739858918d5b68912c",
+    "semantic_hash": "97f8c4ebc2fb19739858918d5b68912c"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/providers/auth-provider.tsx": {
+    "mtime": 1779451764.1036625,
+    "ast_hash": "894d2e027a1782c81de04a85cbcc7cab",
+    "semantic_hash": "894d2e027a1782c81de04a85cbcc7cab"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/providers/theme-provider.tsx": {
+    "mtime": 1779451573.0421696,
+    "ast_hash": "c3260b7d8a032ea27465beabf4f4f071",
+    "semantic_hash": "c3260b7d8a032ea27465beabf4f4f071"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/providers/toast-provider.tsx": {
+    "mtime": 1779450805.8828096,
+    "ast_hash": "70888c832edcf87469ac70015da537db",
+    "semantic_hash": "70888c832edcf87469ac70015da537db"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/shared/empty-state.tsx": {
+    "mtime": 1779452152.2058866,
+    "ast_hash": "d0e1413605cc4803d95c21c3b35e2a0e",
+    "semantic_hash": "d0e1413605cc4803d95c21c3b35e2a0e"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/shared/header.tsx": {
+    "mtime": 1779503235.796597,
+    "ast_hash": "99b6541590435634f9002721e25d5ae6",
+    "semantic_hash": "99b6541590435634f9002721e25d5ae6"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/shared/loading-skeleton.tsx": {
+    "mtime": 1779452150.3252127,
+    "ast_hash": "caa0c71c3c6de85449464e5b8bcd0eff",
+    "semantic_hash": "caa0c71c3c6de85449464e5b8bcd0eff"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/shared/loading-spinner.tsx": {
+    "mtime": 1779450797.2840836,
+    "ast_hash": "4700807c46398cadaf3564a2515566a8",
+    "semantic_hash": "4700807c46398cadaf3564a2515566a8"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/shared/org-switcher.tsx": {
+    "mtime": 1779466430.0002024,
+    "ast_hash": "b52c1428e87f0a4f15582c97a5f6051b",
+    "semantic_hash": "b52c1428e87f0a4f15582c97a5f6051b"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/shared/page-header.tsx": {
+    "mtime": 1779450800.6719909,
+    "ast_hash": "fa3d1eaa0361597fa481787cef6e402c",
+    "semantic_hash": "fa3d1eaa0361597fa481787cef6e402c"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/shared/sidebar.tsx": {
+    "mtime": 1779478130.3514788,
+    "ast_hash": "6688cc7212c40559a0dc1c5468203c66",
+    "semantic_hash": "6688cc7212c40559a0dc1c5468203c66"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/shared/stat-card.tsx": {
+    "mtime": 1779464237.684105,
+    "ast_hash": "e0a3731df1e9a68c6e2540c235a75b5e",
+    "semantic_hash": "e0a3731df1e9a68c6e2540c235a75b5e"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/transactions/receipt-uploader.tsx": {
+    "mtime": 1779472322.0632603,
+    "ast_hash": "2a3fdf8535f5b658d6014f29cac0a4c3",
+    "semantic_hash": "2a3fdf8535f5b658d6014f29cac0a4c3"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/transactions/transaction-form.tsx": {
+    "mtime": 1779503015.3926563,
+    "ast_hash": "e27564072c8813aad3063c2cc9c6acd5",
+    "semantic_hash": "e27564072c8813aad3063c2cc9c6acd5"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/transactions/transaction-list.tsx": {
+    "mtime": 1779472608.9274502,
+    "ast_hash": "1ad91f8b7adcfb2ecce6b03741157647",
+    "semantic_hash": "1ad91f8b7adcfb2ecce6b03741157647"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/avatar.tsx": {
+    "mtime": 1779450754.052976,
+    "ast_hash": "8b41492907a73176027427a3f0fd2302",
+    "semantic_hash": "8b41492907a73176027427a3f0fd2302"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/badge.tsx": {
+    "mtime": 1779450753.5489655,
+    "ast_hash": "e4ec840217040d5630ee6ed7213a1d72",
+    "semantic_hash": "e4ec840217040d5630ee6ed7213a1d72"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/button.tsx": {
+    "mtime": 1779461850.4173288,
+    "ast_hash": "c3af0dcb3127730686a9a16d172562e9",
+    "semantic_hash": "c3af0dcb3127730686a9a16d172562e9"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/calendar.tsx": {
+    "mtime": 1779451621.9771202,
+    "ast_hash": "4242a9f1dd5c11a65573794b1e815198",
+    "semantic_hash": "4242a9f1dd5c11a65573794b1e815198"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/card.tsx": {
+    "mtime": 1779450750.6775403,
+    "ast_hash": "77a10bd948ca424972a28e704a3df604",
+    "semantic_hash": "77a10bd948ca424972a28e704a3df604"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/command.tsx": {
+    "mtime": 1779450758.3388448,
+    "ast_hash": "a25ff237f1693d4196bd45681996572a",
+    "semantic_hash": "a25ff237f1693d4196bd45681996572a"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/dialog.tsx": {
+    "mtime": 1779468250.8551812,
+    "ast_hash": "bbb56659211aac921ff57a43a9238878",
+    "semantic_hash": "bbb56659211aac921ff57a43a9238878"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/dropdown-menu.tsx": {
+    "mtime": 1779468249.2967827,
+    "ast_hash": "50a0f78e4bb9a29b2552f9cfc95b7b20",
+    "semantic_hash": "50a0f78e4bb9a29b2552f9cfc95b7b20"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/form.tsx": {
+    "mtime": 1779458523.637514,
+    "ast_hash": "0ed732617aace88aa93d42fe438dd281",
+    "semantic_hash": "0ed732617aace88aa93d42fe438dd281"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/input-group.tsx": {
+    "mtime": 1779450757.95119,
+    "ast_hash": "e416a1443c87bacbba5ac124ee292dd5",
+    "semantic_hash": "e416a1443c87bacbba5ac124ee292dd5"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/input.tsx": {
+    "mtime": 1779462904.9757352,
+    "ast_hash": "fb63189cc09ebe1c070ff7f49d96a1c7",
+    "semantic_hash": "fb63189cc09ebe1c070ff7f49d96a1c7"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/label.tsx": {
+    "mtime": 1779450752.1771393,
+    "ast_hash": "a70440da86bfc6a07f15197cca48cb08",
+    "semantic_hash": "a70440da86bfc6a07f15197cca48cb08"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/popover.tsx": {
+    "mtime": 1779468255.6398387,
+    "ast_hash": "48981a22cdcd679b09cabcdd349b8cf3",
+    "semantic_hash": "48981a22cdcd679b09cabcdd349b8cf3"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/progress.tsx": {
+    "mtime": 1779450755.2690117,
+    "ast_hash": "aa71e8ceb68b33af5ed5799f42cd873e",
+    "semantic_hash": "aa71e8ceb68b33af5ed5799f42cd873e"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/select.tsx": {
+    "mtime": 1779450752.8377454,
+    "ast_hash": "ab95f478cb74d1906b07425c15b124cc",
+    "semantic_hash": "ab95f478cb74d1906b07425c15b124cc"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/separator.tsx": {
+    "mtime": 1779450756.1127014,
+    "ast_hash": "3de2dca3e47ab29c4b1f632671545628",
+    "semantic_hash": "3de2dca3e47ab29c4b1f632671545628"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/sheet.tsx": {
+    "mtime": 1779468253.0268226,
+    "ast_hash": "bc40c382016556ca463fd8083c8f1f43",
+    "semantic_hash": "bc40c382016556ca463fd8083c8f1f43"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/skeleton.tsx": {
+    "mtime": 1779450755.8750615,
+    "ast_hash": "0e6e825c43d858d98c9903f4da975382",
+    "semantic_hash": "0e6e825c43d858d98c9903f4da975382"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/table.tsx": {
+    "mtime": 1779450755.6210184,
+    "ast_hash": "44f87727e60080863edb00fdd2fcd8da",
+    "semantic_hash": "44f87727e60080863edb00fdd2fcd8da"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/tabs.tsx": {
+    "mtime": 1779450754.9422255,
+    "ast_hash": "429035bc858475cd3bcedbb08a5ba8da",
+    "semantic_hash": "429035bc858475cd3bcedbb08a5ba8da"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/components/ui/textarea.tsx": {
+    "mtime": 1779461844.8085878,
+    "ast_hash": "d783832bbd8a42ccd3b334e30b57bd7e",
+    "semantic_hash": "d783832bbd8a42ccd3b334e30b57bd7e"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/hooks/use-auth.ts": {
+    "mtime": 1779503260.982785,
+    "ast_hash": "86cb2386d23311a3e9d1540079ffbd51",
+    "semantic_hash": "86cb2386d23311a3e9d1540079ffbd51"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/hooks/use-org.ts": {
+    "mtime": 1779462912.2316165,
+    "ast_hash": "f031ab9d6490009b4d21ccd4803b1ae9",
+    "semantic_hash": "f031ab9d6490009b4d21ccd4803b1ae9"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/lib/constants.ts": {
+    "mtime": 1779450815.7990649,
+    "ast_hash": "97af411c003675085b1470047d1352b3",
+    "semantic_hash": "97af411c003675085b1470047d1352b3"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/lib/prisma.ts": {
+    "mtime": 1779451033.2942524,
+    "ast_hash": "a9272266b8124533728a1df92a0ddaff",
+    "semantic_hash": "a9272266b8124533728a1df92a0ddaff"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/lib/utils.ts": {
+    "mtime": 1779450813.3758185,
+    "ast_hash": "97a22ff072b529bd83580750f4378567",
+    "semantic_hash": "97a22ff072b529bd83580750f4378567"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/lib/supabase/client.ts": {
+    "mtime": 1779452013.0144436,
+    "ast_hash": "e411d0efa68dac6b37d31dc5bd1f8960",
+    "semantic_hash": "e411d0efa68dac6b37d31dc5bd1f8960"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/lib/supabase/middleware.ts": {
+    "mtime": 1779462829.0293396,
+    "ast_hash": "dc11c02c41dd50cdf306e4aaf645da55",
+    "semantic_hash": "dc11c02c41dd50cdf306e4aaf645da55"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/lib/supabase/server.ts": {
+    "mtime": 1779462824.269045,
+    "ast_hash": "bcc60e7c68809cb9b88baef532ae74f7",
+    "semantic_hash": "bcc60e7c68809cb9b88baef532ae74f7"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/stores/auth-store.ts": {
+    "mtime": 1779451258.675046,
+    "ast_hash": "d4c3b79890d0867ec18b3c2fcf6470c8",
+    "semantic_hash": "d4c3b79890d0867ec18b3c2fcf6470c8"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/stores/org-store.ts": {
+    "mtime": 1779451260.1083224,
+    "ast_hash": "dcb24f2b14bee0843267f488f00544fd",
+    "semantic_hash": "dcb24f2b14bee0843267f488f00544fd"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/types/auth.ts": {
+    "mtime": 1779450840.8220875,
+    "ast_hash": "2ab3cd8f453f34e7e45e64d65a0374ab",
+    "semantic_hash": "2ab3cd8f453f34e7e45e64d65a0374ab"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/types/document.ts": {
+    "mtime": 1779451548.1851258,
+    "ast_hash": "49e048051883abb464368021da669124",
+    "semantic_hash": "49e048051883abb464368021da669124"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/types/index.ts": {
+    "mtime": 1779451373.820418,
+    "ast_hash": "8f826b1a2c9356fc1cff00dea8ed30d9",
+    "semantic_hash": "8f826b1a2c9356fc1cff00dea8ed30d9"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/types/org.ts": {
+    "mtime": 1779450844.0694618,
+    "ast_hash": "d0856893c31e26704e4e04e436176f77",
+    "semantic_hash": "d0856893c31e26704e4e04e436176f77"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/types/project.ts": {
+    "mtime": 1779451369.224188,
+    "ast_hash": "279df69775550d5f4dcef8862f3bfef1",
+    "semantic_hash": "279df69775550d5f4dcef8862f3bfef1"
+  },
+  "/mnt/c/Agentic/working/EzDoc/workflowos/src/types/transaction.ts": {
+    "mtime": 1779451366.2252867,
+    "ast_hash": "d6e410ec22af672737b8f102d7eca87e",
+    "semantic_hash": "d6e410ec22af672737b8f102d7eca87e"
+  }
+}
