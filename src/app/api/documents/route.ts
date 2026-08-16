@@ -2,7 +2,7 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import prisma from '@/lib/prisma'
-import { DocumentType, DocStatus } from '@prisma/client'
+import { DocumentType, DocStatus } from '@/types'
 import { sendLineNotification } from '@/lib/line-notify'
 
 export async function GET(request: Request) {
@@ -105,11 +105,15 @@ export async function POST(request: Request) {
       where: { supabaseId: session.user.id }
     })
 
+    if (!dbUser) {
+      return NextResponse.json({ error: 'User not found' }, { status: 404 })
+    }
+
     const membership = await prisma.orgMember.findUnique({
       where: {
         orgId_userId: {
           orgId,
-          userId: dbUser!.id
+          userId: dbUser.id
         }
       },
       include: {

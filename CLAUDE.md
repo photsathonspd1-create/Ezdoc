@@ -39,3 +39,13 @@ Project management, LINE Bot integration, AI insights.
 3. All API calls in /app/api/ route handlers only
 4. Thai language for all UI labels
 5. Always handle loading and error states in UI
+
+## Local Development Database (PostgreSQL)
+1. Start the local database container:
+   `docker-compose up -d`
+2. Ensure your `.env` has the correct database connection string:
+   `DATABASE_URL="postgresql://postgres:postgres@localhost:5432/workflowos?schema=public"`
+3. Run database migrations:
+   `npx prisma migrate dev`
+4. Populate seed data:
+   `npx prisma db seed`

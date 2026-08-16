@@ -32,7 +32,7 @@ import { CalendarIcon, Loader2, ArrowUpCircle, ArrowDownCircle } from 'lucide-re
 import { format } from 'date-fns'
 import { th } from 'date-fns/locale'
 import { cn } from '@/lib/utils'
-import { TransactionType, TxStatus } from '@prisma/client'
+import { TransactionType, TxStatus } from '@/types'
 import { ReceiptUploader } from './receipt-uploader'
 
 const formSchema = z.object({

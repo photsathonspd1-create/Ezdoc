@@ -145,6 +145,7 @@ export default function SettingsPage() {
   const [inviteRole, setInviteRole] = useState<'OWNER' | 'ADMIN' | 'MEMBER'>('MEMBER')
   const [inviting, setInviting] = useState(false)
   const [isInviteOpen, setIsInviteOpen] = useState(false)
+  const [showOpenAI, setShowOpenAI] = useState(false)
 
   // React Hook Form for Company details
   const {
@@ -163,7 +164,7 @@ export default function SettingsPage() {
     },
   })
 
-  // Integrations form
+  // Integrations form (onUpdateEnterprise)
   const {
     register: registerInt,
     handleSubmit: handleIntSubmit,
@@ -598,7 +599,7 @@ export default function SettingsPage() {
                 <Button 
                   type="submit" 
                   disabled={isUpdatingOrg} 
-                  className="h-12 px-8 rounded-2xl font-medium text-sm bg-blue-600 hover:bg-blue-700 shadow-xl shadow-blue-500/25 transition-all active:scale-95 gap-2"
+                  className="h-12 px-8 rounded-lg font-medium text-sm bg-blue-600 hover:bg-blue-700 shadow-xl shadow-blue-500/25 transition-all active:scale-95 gap-2"
                 >
                   {isUpdatingOrg ? (
                     <>
@@ -917,15 +918,31 @@ export default function SettingsPage() {
                     </div>
                   </div>
                   <div className="pt-2">
-                    <Label className="sr-only">OpenAI Key</Label>
-                    <div className="relative">
-                      <Key className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
-                      <Input
-                        type="password"
-                        placeholder="sk-proj-xxxxxxxxxxxxxxxxxxxxxxxx"
-                        className="pl-9 bg-slate-50 dark:bg-slate-900 font-mono text-sm"
-                        {...registerInt('openaiKey')}
-                      />
+                    <Label htmlFor="openaiKey" className="sr-only">OpenAI Key</Label>
+                    <div className="relative flex items-center gap-2">
+                      <div className="relative flex-1">
+                        <Key className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
+                        <Input
+                          id="openaiKey"
+                          type={showOpenAI ? "text" : "password"}
+                          placeholder="sk-proj-xxxxxxxxxxxxxxxxxxxxxxxx"
+                          className="pl-9 pr-10 bg-slate-50 dark:bg-slate-900 font-mono text-sm w-full"
+                          {...registerInt('openaiKey')}
+                        />
+                      </div>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="icon"
+                        className="h-10 w-10 shrink-0 rounded-lg"
+                        onClick={() => setShowOpenAI(!showOpenAI)}
+                      >
+                        {showOpenAI ? (
+                          <Sparkles className="h-4 w-4 text-indigo-500" />
+                        ) : (
+                          <Lock className="h-4 w-4 text-slate-400" />
+                        )}
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -967,7 +984,7 @@ export default function SettingsPage() {
                 <p className="text-xs text-slate-400 flex items-center gap-1">
                   <Shield className="w-3.5 h-3.5" /> คีย์ทั้งหมดจะถูกเข้ารหัสก่อนจัดเก็บ
                 </p>
-                <Button type="submit" className="gap-2 px-6 rounded-xl font-bold bg-indigo-600 hover:bg-indigo-700">
+                <Button type="submit" className="gap-2 px-6 rounded-lg font-bold bg-indigo-600 hover:bg-indigo-700">
                   <Check className="h-4 w-4" /> บันทึกการเชื่อมต่อ
                 </Button>
               </CardFooter>
@@ -1048,14 +1065,14 @@ export default function SettingsPage() {
                 setCropModalOpen(false)
                 setSelectedImage(null)
               }}
-              className="rounded-xl px-4 py-2 border-slate-200 text-slate-700 hover:bg-slate-50 dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-900/50"
+              className="rounded-lg px-4 py-2 border-slate-200 text-slate-700 hover:bg-slate-50 dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-900/50"
             >
               ยกเลิก
             </Button>
             <Button
               type="button"
               onClick={handleCropConfirm}
-              className="rounded-xl px-5 py-2 font-semibold shadow-md shadow-primary/10 transition-transform active:scale-95 bg-primary text-white hover:bg-primary/90"
+              className="rounded-lg px-5 py-2 font-semibold shadow-md shadow-primary/10 transition-transform active:scale-95 bg-primary text-white hover:bg-primary/90"
             >
               บันทึกและครอบตัด
             </Button>

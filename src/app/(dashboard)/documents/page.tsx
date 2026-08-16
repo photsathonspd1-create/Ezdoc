@@ -39,7 +39,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { formatCurrency, formatDate } from '@/lib/utils'
-import { DocStatus, DocumentType } from '@prisma/client'
+import { DocStatus, DocumentType } from '@/types'
 import { EmptyState } from '@/components/shared/empty-state'
 import { PDFDownloadButton } from '@/components/documents/pdf-download-button'
 import { toast } from 'sonner'

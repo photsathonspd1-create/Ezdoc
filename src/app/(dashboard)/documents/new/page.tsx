@@ -26,7 +26,7 @@ import {
   Loader2
 } from 'lucide-react'
 import { formatCurrency } from '@/lib/utils'
-import { DocumentType, DocStatus } from '@prisma/client'
+import { DocumentType, DocStatus } from '@/types'
 import { toast } from 'sonner'
 import { motion } from 'framer-motion'
 

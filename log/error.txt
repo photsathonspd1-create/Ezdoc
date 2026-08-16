@@ -1,0 +1,313 @@
+
+ GET /api/user/me 200 in 81ms
+ ⨯ Failed to generate static paths for /api/documents/[id]:
+Error: ENOENT: no such file or directory, open 'C:\Agentic\working\EzDoc\.next\build-manifest.json'
+    at readFileSync (node:fs:441:20)
+    at loadManifest (C:\Agentic\working\EzDoc\node_modules\next\dist\server\load-manifest.js:36:52)
+    at loadManifestWithRetries (C:\Agentic\working\EzDoc\node_modules\next\dist\server\load-components.js:40:51)
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Agentic\working\EzDoc\node_modules\next\dist\server\load-components.js:84:100)
+    at async Object.loadStaticPaths (C:\Agentic\working\EzDoc\node_modules\next\dist\server\dev\static-paths-worker.js:23:24) {
+  type: 'Error',
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Agentic\\working\\EzDoc\\.next\\build-manifest.json'
+}
+ ✓ Compiled in 3.8s (2108 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ○ Compiling /_not-found ...
+ ⨯ Failed to generate static paths for /documents/[id]:
+Error: Cannot find module './vendor-chunks/@base-ui.js'
+Require stack:
+- C:\Agentic\working\EzDoc\.next\server\webpack-runtime.js
+- C:\Agentic\working\EzDoc\.next\server\app\(dashboard)\documents\[id]\page.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\require.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\load-components.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\build\utils.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\dev\static-paths-worker.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\compiled\jest-worker\processChild.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\Agentic\working\EzDoc\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\Agentic\working\EzDoc\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16) {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Agentic\\working\\EzDoc\\.next\\server\\webpack-runtime.js',
+    'C:\\Agentic\\working\\EzDoc\\.next\\server\\app\\(dashboard)\\documents\\[id]\\page.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\dev\\static-paths-worker.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\compiled\\jest-worker\\processChild.js'
+  ]
+}
+ ⨯ Failed to generate static paths for /documents/[id]:
+Error: Cannot find module './vendor-chunks/@base-ui.js'
+Require stack:
+- C:\Agentic\working\EzDoc\.next\server\webpack-runtime.js
+- C:\Agentic\working\EzDoc\.next\server\app\(dashboard)\documents\[id]\page.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\require.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\load-components.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\build\utils.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\dev\static-paths-worker.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\compiled\jest-worker\processChild.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\Agentic\working\EzDoc\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\Agentic\working\EzDoc\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16) {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Agentic\\working\\EzDoc\\.next\\server\\webpack-runtime.js',
+    'C:\\Agentic\\working\\EzDoc\\.next\\server\\app\\(dashboard)\\documents\\[id]\\page.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\dev\\static-paths-worker.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\compiled\\jest-worker\\processChild.js'
+  ]
+}
+ ⨯ src\app\(dashboard)\documents\[id]\page.tsx (169:7) @ customSettings
+ ⨯ ReferenceError: Cannot access 'customSettings' before initialization
+    at DocumentDetailContent (documents/[id]/page.tsx:215:9)
+digest: "830811053"
+  167 |       localStorage.setItem(`ezdoc_custom_settings_${id}`, JSON.stringify(customSettings))
+  168 |     }
+> 169 |   }, [customSettings, id])
+      |       ^
+  170 |
+  171 |   // Presets System Utilities
+  172 |   const savePreset = () => {
+ GET /documents/cmprpurpv0001ewroiqpjaabk 200 in 1545ms
+ ✓ Compiled /_not-found in 8s (2111 modules)
+ GET /_next/static/css/app/(dashboard)/documents/%5Bid%5D/page.css?v=1780122843490 404 in 6767ms
+ GET /_next/static/css/app/layout.css?v=1780122843490 404 in 6779ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 6805ms
+ GET /_next/static/chunks/main-app.js?v=1780122843490 404 in 6802ms
+ GET /_next/static/chunks/app/(dashboard)/layout.js 404 in 6740ms
+ ✓ Compiled /favicon.ico in 382ms (1115 modules)
+ ⨯ Error: Cannot find module './8948.js'
+Require stack:
+- C:\Agentic\working\EzDoc\.next\server\webpack-runtime.js
+- C:\Agentic\working\EzDoc\.next\server\app\favicon.ico\route.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\require.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\load-components.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\build\utils.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\lib\router-server.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\Agentic\working\EzDoc\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\Agentic\working\EzDoc\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at __webpack_require__.f.require (C:\Agentic\working\EzDoc\.next\server\webpack-runtime.js:203:28)
+    at C:\Agentic\working\EzDoc\.next\server\webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Agentic\working\EzDoc\.next\server\webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Agentic\working\EzDoc\.next\server\webpack-runtime.js:167:22)
+    at C:\Agentic\working\EzDoc\.next\server\app\favicon.ico\route.js:12:16110
+    at Object.<anonymous> (C:\Agentic\working\EzDoc\.next\server\app\favicon.ico\route.js:12:16153)
+    at Module._compile (node:internal/modules/cjs/loader:1830:14)
+    at Object..js (node:internal/modules/cjs/loader:1961:10)
+    at Module.load (node:internal/modules/cjs/loader:1553:32)
+    at Module._load (node:internal/modules/cjs/loader:1355:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\Agentic\working\EzDoc\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at requirePage (C:\Agentic\working\EzDoc\node_modules\next\dist\server\require.js:109:84)
+    at C:\Agentic\working\EzDoc\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (C:\Agentic\working\EzDoc\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (C:\Agentic\working\EzDoc\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (C:\Agentic\working\EzDoc\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Agentic\working\EzDoc\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (C:\Agentic\working\EzDoc\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Agentic\working\EzDoc\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Agentic\working\EzDoc\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Agentic\working\EzDoc\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Agentic\working\EzDoc\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Agentic\working\EzDoc\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Agentic\working\EzDoc\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Agentic\working\EzDoc\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Agentic\working\EzDoc\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Agentic\working\EzDoc\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Agentic\working\EzDoc\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Agentic\\working\\EzDoc\\.next\\server\\webpack-runtime.js',
+    'C:\\Agentic\\working\\EzDoc\\.next\\server\\app\\favicon.ico\\route.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 467ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 217ms
+ GET /_next/static/chunks/main-app.js?v=1780122843490 404 in 215ms
+ GET /_next/static/chunks/app/(dashboard)/layout.js 404 in 216ms
+ ✓ Compiled in 2.3s (2143 modules)
+ ✓ Compiled in 2.1s (2143 modules)
+ ✓ Compiled in 2.8s (2143 modules)
+ GET /documents/cmprpurpv0001ewroiqpjaabk 200 in 739ms
+ GET /favicon.ico 200 in 84ms
+ ○ Compiling /api/orgs ...
+ ✓ Compiled /projects in 1235ms (1147 modules)
+ ○ Compiling /ai-ezdoc-dashboard ...
+ ✓ Compiled /ai-ezdoc-dashboard in 22.6s (5707 modules)
+ ⨯ src\app\(dashboard)\documents\[id]\page.tsx (169:7) @ customSettings
+ ⨯ ReferenceError: Cannot access 'customSettings' before initialization
+    at DocumentDetailContent (documents/[id]/page.tsx:215:9)
+digest: "830811053"
+  167 |       localStorage.setItem(`ezdoc_custom_settings_${id}`, JSON.stringify(customSettings))
+  168 |     }
+> 169 |   }, [customSettings, id])
+      |       ^
+  170 |
+  171 |   // Presets System Utilities
+  172 |   const savePreset = () => {
+ GET /documents/cmprpurpv0001ewroiqpjaabk 200 in 9425ms
+ ⨯ Failed to generate static paths for /documents/[id]:
+Error: Cannot find module './vendor-chunks/@opentelemetry.js'
+Require stack:
+- C:\Agentic\working\EzDoc\.next\server\webpack-runtime.js
+- C:\Agentic\working\EzDoc\.next\server\app\(dashboard)\documents\[id]\page.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\require.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\load-components.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\build\utils.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\dev\static-paths-worker.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\compiled\jest-worker\processChild.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\Agentic\working\EzDoc\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\Agentic\working\EzDoc\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16) {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Agentic\\working\\EzDoc\\.next\\server\\webpack-runtime.js',
+    'C:\\Agentic\\working\\EzDoc\\.next\\server\\app\\(dashboard)\\documents\\[id]\\page.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\dev\\static-paths-worker.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\compiled\\jest-worker\\processChild.js'
+  ]
+}
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 3.2s (5710 modules)
+ GET /_next/static/css/app/(dashboard)/documents/%5Bid%5D/page.css?v=1780123027983 404 in 3725ms
+ GET /_next/static/css/app/layout.css?v=1780123027983 404 in 3752ms
+ GET /_next/static/chunks/main-app.js?v=1780123027983 404 in 3731ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 3731ms
+ GET /_next/static/chunks/app/(dashboard)/documents/%5Bid%5D/page.js 404 in 3732ms
+ GET /_next/static/chunks/app/(dashboard)/layout.js 404 in 3728ms
+ GET /_next/static/chunks/app/layout.js 404 in 109ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 140ms
+ GET /_next/static/chunks/main-app.js?v=1780123027983 404 in 147ms
+ GET /_next/static/chunks/app/(dashboard)/documents/%5Bid%5D/page.js 404 in 142ms
+ ⨯ Error: Cannot find module './8948.js'
+Require stack:
+- C:\Agentic\working\EzDoc\.next\server\webpack-runtime.js
+- C:\Agentic\working\EzDoc\.next\server\app\_not-found\page.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\require.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\load-components.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\build\utils.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\lib\router-server.js
+- C:\Agentic\working\EzDoc\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1476:15)
+    at C:\Agentic\working\EzDoc\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1049:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1073:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1094:12)
+    at Module._load (node:internal/modules/cjs/loader:1262:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\Agentic\working\EzDoc\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at __webpack_require__.f.require (C:\Agentic\working\EzDoc\.next\server\webpack-runtime.js:272:28)
+    at C:\Agentic\working\EzDoc\.next\server\webpack-runtime.js:185:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Agentic\working\EzDoc\.next\server\webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Agentic\working\EzDoc\.next\server\webpack-runtime.js:236:22)
+    at C:\Agentic\working\EzDoc\.next\server\app\favicon.ico\route.js:12:16110
+    at Object.<anonymous> (C:\Agentic\working\EzDoc\.next\server\app\favicon.ico\route.js:12:16153)
+    at Module._compile (node:internal/modules/cjs/loader:1830:14)
+    at Object..js (node:internal/modules/cjs/loader:1961:10)
+    at Module.load (node:internal/modules/cjs/loader:1553:32)
+    at Module._load (node:internal/modules/cjs/loader:1355:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1576:12)
+    at mod.require (C:\Agentic\working\EzDoc\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:153:16)
+    at requirePage (C:\Agentic\working\EzDoc\node_modules\next\dist\server\require.js:109:84)
+    at C:\Agentic\working\EzDoc\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (C:\Agentic\working\EzDoc\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (C:\Agentic\working\EzDoc\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (C:\Agentic\working\EzDoc\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Agentic\working\EzDoc\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (C:\Agentic\working\EzDoc\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Agentic\working\EzDoc\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Agentic\working\EzDoc\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Agentic\working\EzDoc\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Agentic\working\EzDoc\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Agentic\working\EzDoc\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Agentic\working\EzDoc\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Agentic\working\EzDoc\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Agentic\working\EzDoc\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Agentic\working\EzDoc\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Agentic\working\EzDoc\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Agentic\\working\\EzDoc\\.next\\server\\webpack-runtime.js',
+    'C:\\Agentic\\working\\EzDoc\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Agentic\\working\\EzDoc\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 112ms
+ GET /_next/static/chunks/app/layout.js 404 in 105ms

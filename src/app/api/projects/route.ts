@@ -2,7 +2,7 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import prisma from '@/lib/prisma'
-import { ProjectStatus, PayStatus } from '@prisma/client'
+import { ProjectStatus, PayStatus } from '@/types'
 
 export async function GET(request: Request) {
   const supabase = createClient()

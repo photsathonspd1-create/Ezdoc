@@ -223,7 +223,7 @@ export function DocumentPDF({ document, org, qrCodeDataUrl }: { document: any, o
         {qrCodeDataUrl && document.type === 'INVOICE' && (
           <View style={styles.qrContainer}>
             <Text style={styles.sectionTitle}>Scan to Pay (PromptPay)</Text>
-            <Image src={qrCodeDataUrl} style={{ width: 100, height: 100 }} alt="PromptPay QR Code" />
+            <Image src={qrCodeDataUrl} style={{ width: 100, height: 100 }} />
             <Text style={styles.qrText}>Amount: {formatCurrency(document.total)}</Text>
           </View>
         )}

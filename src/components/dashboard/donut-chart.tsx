@@ -19,8 +19,8 @@ export default function DonutChart({ data }: DonutChartProps) {
     color: item.color || COLORS[index % COLORS.length]
   }))
 
-  const formatTooltip = (value: number) => {
-    return new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(value)
+  const formatTooltip = (value: any) => {
+    return new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(Number(value))
   }
 
   return (

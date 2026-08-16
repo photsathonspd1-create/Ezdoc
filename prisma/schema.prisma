@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -13,10 +13,10 @@ model User {
   email               String        @unique
   name                String
   avatarUrl           String?       @map("avatar_url")
-  lineUserId          String?       @unique @map("line_user_id")
   phone               String?
   createdAt           DateTime      @default(now()) @map("created_at")
   updatedAt           DateTime      @updatedAt @map("updated_at")
+  lineUserId          String?       @unique @map("line_user_id")
   createdDocuments    Document[]
   memberships         OrgMember[]
   assignedTasks       Task[]
@@ -26,39 +26,61 @@ model User {
 }
 
 model Organization {
-  id           String        @id @default(cuid())
-  name         String
-  taxId        String?       @map("tax_id")
-  address      String?
-  logoUrl      String?       @map("logo_url")
-  phone        String?
-  email        String?
-  website      String?
-  planTier     PlanTier      @default(FREE) @map("plan_tier")
-  openaiKey    String?       @map("openai_key")
-  lineToken    String?       @map("line_token")
-  createdAt    DateTime      @default(now()) @map("created_at")
-  updatedAt    DateTime      @updatedAt @map("updated_at")
-  aiInsights   AiInsight[]
-  categories   Category[]
-  contacts     Contact[]
-  documents    Document[]
-  members      OrgMember[]
-  projects     Project[]
-  tasks        Task[]
-  transactions Transaction[]
+  id              String        @id @default(cuid())
+  name            String
+  taxId           String?       @map("tax_id")
+  address         String?
+  logoUrl         String?       @map("logo_url")
+  phone           String?
+  email           String?
+  website         String?
+  planTier        String        @default("FREE") @map("plan_tier")
+  openaiKey       String?       @map("openai_key")
+  lineToken       String?       @map("line_token")
+  defaultVatRate  Float         @default(7)                  @map("default_vat_rate")
+  defaultWhtRate  Float         @default(0)                  @map("default_wht_rate")
+  budgetRevenue   Float         @default(0)                  @map("budget_revenue")
+  budgetExpense   Float         @default(0)                  @map("budget_expense")
+  fiscalYearStart Int           @default(1)                  @map("fiscal_year_start")
+  stampUrl        String?                                    @map("stamp_url")
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
+  aiInsights      AiInsight[]
+  categories      Category[]
+  contacts        Contact[]
+  documents       Document[]
+  members         OrgMember[]
+  projects        Project[]
+  tasks           Task[]
+  transactions    Transaction[]
+  auditLogs       AuditLog[]
+  chatSessions    ChatSession[]
 
   @@map("organizations")
+}
+
+model AuditLog {
+  id        String       @id @default(cuid())
+  orgId     String       @map("org_id")
+  userId    String?      @map("user_id")
+  action    String
+  resource  String
+  details   String?
+  ipAddress String?      @map("ip_address")
+  createdAt DateTime     @default(now()) @map("created_at")
+  org       Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@map("audit_logs")
 }
 
 model OrgMember {
   id       String       @id @default(cuid())
   orgId    String       @map("org_id")
   userId   String       @map("user_id")
-  role     OrgRole      @default(MEMBER)
+  role     String       @default("MEMBER")
   joinedAt DateTime     @default(now()) @map("joined_at")
-  org      Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
   user     User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  org      Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
 
   @@unique([orgId, userId])
   @@map("org_members")
@@ -68,7 +90,7 @@ model Contact {
   id         String       @id @default(cuid())
   orgId      String       @map("org_id")
   name       String
-  type       ContactType  @default(COMPANY)
+  type       String       @default("COMPANY")
   taxId      String?      @map("tax_id")
   address    String?
   email      String?
@@ -85,43 +107,54 @@ model Contact {
 }
 
 model Category {
-  id           String          @id @default(cuid())
-  orgId        String          @map("org_id")
+  id           String        @id @default(cuid())
+  orgId        String        @map("org_id")
   name         String
-  type         TransactionType
-  color        String          @default("#6366f1")
-  icon         String          @default("tag")
-  isDefault    Boolean         @default(false) @map("is_default")
-  createdAt    DateTime        @default(now()) @map("created_at")
-  org          Organization    @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  type         String
+  color        String        @default("#6366f1")
+  icon         String        @default("tag")
+  isDefault    Boolean       @default(false) @map("is_default")
+  createdAt    DateTime      @default(now()) @map("created_at")
+  org          Organization  @relation(fields: [orgId], references: [id], onDelete: Cascade)
   transactions Transaction[]
 
   @@map("categories")
 }
 
 model Transaction {
-  id            String          @id @default(cuid())
-  orgId         String          @map("org_id")
-  type          TransactionType
-  amount        Decimal         @db.Decimal(12, 2)
-  vatRate       Decimal         @default(7) @map("vat_rate") @db.Decimal(5, 2)
-  vatAmount     Decimal         @default(0) @map("vat_amount") @db.Decimal(12, 2)
-  amountExVat   Decimal         @default(0) @map("amount_ex_vat") @db.Decimal(12, 2)
-  description   String
-  categoryId    String?         @map("category_id")
-  date          DateTime
-  paymentMethod String?         @map("payment_method")
-  status        TxStatus        @default(COMPLETED)
-  receiptUrl    String?         @map("receipt_url")
-  documentId    String?         @map("document_id")
-  projectId     String?         @map("project_id")
-  createdById   String          @map("created_by_id")
-  notes         String?
-  createdAt     DateTime        @default(now()) @map("created_at")
-  updatedAt     DateTime        @updatedAt @map("updated_at")
-  category      Category?       @relation(fields: [categoryId], references: [id])
-  createdBy     User            @relation(fields: [createdById], references: [id])
-  org           Organization    @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  id               String       @id @default(cuid())
+  orgId            String       @map("org_id")
+  type             String
+  amount           Float
+  vatRate          Float        @default(7) @map("vat_rate")
+  vatAmount        Float        @default(0) @map("vat_amount")
+  amountExVat      Float        @default(0) @map("amount_ex_vat")
+  vendorName       String?
+  vendorTaxId      String?
+  vendorBranch     String?      @default("00000")
+  vendorAddress    String?
+  isTaxInvoice     Boolean      @default(false)
+  taxInvoiceNumber String?
+  taxInvoiceDate   DateTime?
+  whtRate          Float?       @default(0)
+  whtAmount        Float?       @default(0)
+  internalRef      String?
+  department       String?
+  description      String
+  categoryId       String?      @map("category_id")
+  date             DateTime
+  paymentMethod    String?      @map("payment_method")
+  status           String       @default("COMPLETED")
+  receiptUrl       String?      @map("receipt_url")
+  documentId       String?      @map("document_id")
+  projectId        String?      @map("project_id")
+  createdById      String       @map("created_by_id")
+  notes            String?
+  createdAt        DateTime     @default(now()) @map("created_at")
+  updatedAt        DateTime     @updatedAt @map("updated_at")
+  org              Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  createdBy        User         @relation(fields: [createdById], references: [id])
+  category         Category?    @relation(fields: [categoryId], references: [id])
 
   @@index([orgId, date])
   @@index([orgId, type])
@@ -129,23 +162,23 @@ model Transaction {
 }
 
 model Project {
-  id            String        @id @default(cuid())
-  orgId         String        @map("org_id")
+  id            String       @id @default(cuid())
+  orgId         String       @map("org_id")
   name          String
-  clientId      String?       @map("client_id")
-  status        ProjectStatus @default(PENDING)
-  budget        Decimal?      @db.Decimal(12, 2)
-  paidAmount    Decimal       @default(0) @map("paid_amount") @db.Decimal(12, 2)
-  paymentStatus PayStatus     @default(UNPAID) @map("payment_status")
-  startDate     DateTime?     @map("start_date")
-  dueDate       DateTime?     @map("due_date")
-  tags          String[]      @default([])
+  clientId      String?      @map("client_id")
+  status        String       @default("PENDING")
+  budget        Float?
+  paidAmount    Float        @default(0) @map("paid_amount")
+  paymentStatus String       @default("UNPAID") @map("payment_status")
+  startDate     DateTime?    @map("start_date")
+  dueDate       DateTime?    @map("due_date")
+  tags          String       @default("[]")
   notes         String?
-  createdAt     DateTime      @default(now()) @map("created_at")
-  updatedAt     DateTime      @updatedAt @map("updated_at")
+  createdAt     DateTime     @default(now()) @map("created_at")
+  updatedAt     DateTime     @updatedAt @map("updated_at")
   documents     Document[]
-  client        Contact?      @relation(fields: [clientId], references: [id])
-  org           Organization  @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  org           Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  client        Contact?     @relation(fields: [clientId], references: [id])
   tasks         Task[]
 
   @@index([orgId, status])
@@ -158,24 +191,24 @@ model Document {
   orgId       String       @map("org_id")
   projectId   String?      @map("project_id")
   clientId    String?      @map("client_id")
-  type        DocumentType
+  type        String
   docNumber   String       @map("doc_number")
-  status      DocStatus    @default(DRAFT)
+  status      String       @default("DRAFT")
   issuedDate  DateTime     @map("issued_date")
   dueDate     DateTime?    @map("due_date")
-  items       Json
-  subtotal    Decimal      @db.Decimal(12, 2)
-  vatAmount   Decimal      @default(0) @map("vat_amount") @db.Decimal(12, 2)
-  total       Decimal      @db.Decimal(12, 2)
+  items       String       @default("[]")
+  subtotal    Float
+  vatAmount   Float        @default(0) @map("vat_amount")
+  total       Float
   pdfUrl      String?      @map("pdf_url")
   notes       String?
   createdById String       @map("created_by_id")
   createdAt   DateTime     @default(now()) @map("created_at")
   updatedAt   DateTime     @updatedAt @map("updated_at")
-  client      Contact?     @relation(fields: [clientId], references: [id])
-  createdBy   User         @relation(fields: [createdById], references: [id])
-  org         Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
   project     Project?     @relation(fields: [projectId], references: [id])
+  org         Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  createdBy   User         @relation(fields: [createdById], references: [id])
+  client      Contact?     @relation(fields: [clientId], references: [id])
 
   @@unique([orgId, docNumber])
   @@index([orgId, type])
@@ -190,13 +223,13 @@ model Task {
   description String?
   assigneeId  String?      @map("assignee_id")
   dueDate     DateTime?    @map("due_date")
-  status      TaskStatus   @default(PENDING)
-  priority    Priority     @default(MEDIUM)
+  status      String       @default("PENDING")
+  priority    String       @default("MEDIUM")
   createdAt   DateTime     @default(now()) @map("created_at")
   updatedAt   DateTime     @updatedAt @map("updated_at")
-  assignee    User?        @relation(fields: [assigneeId], references: [id])
-  org         Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
   project     Project?     @relation(fields: [projectId], references: [id])
+  org         Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  assignee    User?        @relation(fields: [assigneeId], references: [id])
 
   @@map("tasks")
 }
@@ -207,7 +240,7 @@ model AiInsight {
   type      String
   title     String
   content   String
-  metadata  Json?
+  metadata  String?
   isRead    Boolean      @default(false) @map("is_read")
   createdAt DateTime     @default(now()) @map("created_at")
   org       Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
@@ -215,74 +248,26 @@ model AiInsight {
   @@map("ai_insights")
 }
 
-enum PlanTier {
-  FREE
-  PRO
-  BUSINESS
+model ChatSession {
+  id        String        @id @default(cuid())
+  orgId     String        @map("org_id")
+  title     String        @default("New Conversation")
+  createdAt DateTime      @default(now()) @map("created_at")
+  updatedAt DateTime      @updatedAt @map("updated_at")
+  messages  ChatMessage[]
+  org       Organization  @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@map("chat_sessions")
 }
 
-enum OrgRole {
-  OWNER
-  ADMIN
-  MEMBER
-}
+model ChatMessage {
+  id        String      @id @default(cuid())
+  sessionId String
+  role      String
+  content   String
+  metadata  String?
+  createdAt DateTime    @default(now()) @map("created_at")
+  session   ChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
 
-enum ContactType {
-  PERSON
-  COMPANY
-}
-
-enum TransactionType {
-  INCOME
-  EXPENSE
-}
-
-enum TxStatus {
-  PENDING
-  COMPLETED
-  CANCELLED
-}
-
-enum ProjectStatus {
-  PENDING
-  ACTIVE
-  COMPLETED
-  CANCELLED
-}
-
-enum PayStatus {
-  UNPAID
-  PARTIAL
-  PAID
-}
-
-enum DocumentType {
-  PV
-  RV
-  INVOICE
-  RECEIPT
-  QUOTATION
-}
-
-enum DocStatus {
-  DRAFT
-  PENDING_APPROVAL
-  APPROVED
-  REJECTED
-  PAID
-  CANCELLED
-}
-
-enum TaskStatus {
-  PENDING
-  IN_PROGRESS
-  DONE
-  CANCELLED
-}
-
-enum Priority {
-  LOW
-  MEDIUM
-  HIGH
-  URGENT
+  @@map("chat_messages")
 }

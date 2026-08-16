@@ -49,7 +49,7 @@ export function TransactionList({ transactions, onEdit, onDelete }: TransactionL
   }
 
   return (
-    <div className="rounded-[2rem] border border-slate-200/50 dark:border-slate-800/50 bg-white/80 dark:bg-slate-950/50 backdrop-blur-xl overflow-hidden shadow-xl shadow-slate-200/10 dark:shadow-none">
+    <div className="rounded-xl border border-slate-200/50 dark:border-slate-800/50 bg-white/80 dark:bg-slate-950/50 backdrop-blur-xl overflow-hidden shadow-xl shadow-slate-200/10 dark:shadow-none">
       <Table>
         <TableHeader className="bg-slate-50/50 dark:bg-slate-900/40">
           <TableRow className="hover:bg-transparent border-b-slate-100 dark:border-b-slate-800/50">
@@ -111,7 +111,7 @@ export function TransactionList({ transactions, onEdit, onDelete }: TransactionL
                       <MoreHorizontal className="h-5 w-5" />
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-40 rounded-[1.25rem] p-2 shadow-2xl border-slate-100 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl">
+                  <DropdownMenuContent align="end" className="w-40 rounded-xl p-2 shadow-2xl border-slate-100 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl">
                     <DropdownMenuItem onClick={() => onEdit(tx)} className="text-xs font-bold py-2.5 rounded-xl cursor-pointer">
                       <Pencil className="mr-2 h-4 w-4 text-blue-500" />
                       แก้ไขรายการ

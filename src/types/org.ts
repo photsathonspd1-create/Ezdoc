@@ -1,23 +1,5 @@
-// Organization related TypeScript interfaces
+// Organization related TypeScript interfaces from Prisma Client
+import { Organization as PrismaOrganization, OrgMember as PrismaOrgMember } from '@prisma/client'
 
-export interface Organization {
-  id: string
-  name: string
-  taxId?: string | null
-  address?: string | null
-  logoUrl?: string | null
-  phone?: string | null
-  email?: string | null
-  website?: string | null
-  planTier: 'FREE' | 'PRO' | 'BUSINESS'
-  createdAt: Date
-  updatedAt: Date
-}
-
-export interface OrgMember {
-  id: string
-  orgId: string
-  userId: string
-  role: 'OWNER' | 'ADMIN' | 'MEMBER'
-  joinedAt: Date
-}
+export type Organization = PrismaOrganization
+export type OrgMember = PrismaOrgMember

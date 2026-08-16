@@ -1,5 +1,6 @@
 // Prisma seed script for WorkflowOS
-import { PrismaClient, PlanTier, OrgRole, ContactType, TransactionType, TxStatus, ProjectStatus, PayStatus } from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
+import { PlanTier, OrgRole, ContactType, TransactionType, TxStatus, ProjectStatus, PayStatus } from '../src/types'
 
 const prisma = new PrismaClient()
 
@@ -132,7 +133,7 @@ async function main() {
       paymentStatus: PayStatus.PARTIAL,
       startDate: new Date('2026-03-01'),
       dueDate: new Date('2026-08-31'),
-      tags: ['Cloud', 'SiamPartners'],
+      tags: JSON.stringify(['Cloud', 'SiamPartners']),
       notes: 'โปรเจกต์พัฒนาระบบคลาวด์และย้ายฐานข้อมูล',
     },
   })
@@ -148,7 +149,7 @@ async function main() {
       paymentStatus: PayStatus.UNPAID,
       startDate: new Date('2026-06-01'),
       dueDate: new Date('2026-09-30'),
-      tags: ['CRM', 'Website'],
+      tags: JSON.stringify(['CRM', 'Website']),
       notes: 'เตรียมเสนอราคาและรายละเอียดโครงการ',
     },
   })

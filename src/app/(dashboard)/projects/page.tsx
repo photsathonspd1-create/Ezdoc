@@ -37,7 +37,7 @@ import { ProjectForm } from '@/components/projects/project-form'
 import { KanbanBoard } from '@/components/projects/kanban-board'
 import { formatCurrency, formatDate } from '@/lib/utils'
 import { toast } from 'sonner'
-import { ProjectStatus, PayStatus } from '@prisma/client'
+import { ProjectStatus, PayStatus } from '@/types'
 import {
   AlertDialog,
   AlertDialogAction,
